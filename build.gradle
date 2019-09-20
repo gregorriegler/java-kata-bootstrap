@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+group = 'gregorriegler.com'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testCompile(
+            'org.junit.jupiter:junit-jupiter-api:5.5.1',
+            'org.assertj:assertj-core:3.13.2',
+            'org.mockito:mockito-core:3.0.0',
+            'org.mockito:mockito-junit-jupiter:3.0.0'
+    )
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.5.1')
+}
