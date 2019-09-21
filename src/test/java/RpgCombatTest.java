@@ -10,6 +10,8 @@ public class RpgCombatTest {
     void healCharacterByAmountIncreasesItsHealth() {
         RpgCharacter character = new RpgCharacter();
 
+        // damage characte upfront to check 1000
+
         character.heal(10);
         assertThat(character.getHealth()).isEqualTo(1010);
         assertThat(character.isAlive()).isTrue();
@@ -31,7 +33,7 @@ public class RpgCombatTest {
     }
 
     @Test
-    void inflictedDamageGreaterThanHealth_killsCharacter() {
+    void inflictedDamageGreaterThanHealthKillsCharacter() {
         RpgCharacter character = new RpgCharacter();
         RpgCharacter attacker = new RpgCharacter();
 
