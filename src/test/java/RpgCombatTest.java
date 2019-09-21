@@ -20,7 +20,6 @@ public class RpgCombatTest {
         assertThat(character.getHealth()).isEqualTo(1030);
     }
 
-
     @Test
     void inflictDamageOnCharacterDecreasesItsHealth() {
         RpgCharacter character = new RpgCharacter();
@@ -30,7 +29,6 @@ public class RpgCombatTest {
     }
 
     @Test
-    @Disabled
     void inflictedDamageGreaterThanHealth_killsCharacter() {
         RpgCharacter character = new RpgCharacter();
 
@@ -53,6 +51,9 @@ class RpgCharacter {
 
     public void damage(int damage) {
         this.health -= damage;
+        if(this.health < 0) {
+            this.health = 0;
+        }
     }
 
     public boolean isAlive() {
