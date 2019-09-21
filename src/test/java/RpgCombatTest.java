@@ -19,6 +19,14 @@ public class RpgCombatTest {
         assertThat(character.getHealth()).isEqualTo(1030);
     }
 
+
+    @Test
+    void inflictDamageOnCharacterDecreasesItsHealth() {
+        RpgCharacter character = new RpgCharacter();
+
+        character.damage(100);
+        assertThat(character.getHealth()).isEqualTo(900);
+    }
 }
 class RpgCharacter {
     private int health = 1000;
@@ -29,6 +37,10 @@ class RpgCharacter {
 
     public int getHealth() {
         return health;
+    }
+
+    public void damage(int damage) {
+        this.health -= damage;
     }
 }
 
