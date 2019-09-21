@@ -1,7 +1,4 @@
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -24,18 +21,22 @@ public class RpgCombatTest {
 
     @Test
     void inflictDamageOnCharacterDecreasesItsHealth() {
-        RpgCharacter character = new RpgCharacter();
+        var victim = new RpgCharacter();
+        var attacker = new RpgCharacter();
 
-        character.damage(100);
-        assertThat(character.getHealth()).isEqualTo(900);
-        assertThat(character.isAlive()).isTrue();
+        victim.damage(attacker, 100);
+
+        assertThat(victim.getHealth()).isEqualTo(900);
+        assertThat(victim.isAlive()).isTrue();
     }
 
     @Test
     void inflictedDamageGreaterThanHealth_killsCharacter() {
         RpgCharacter character = new RpgCharacter();
+        RpgCharacter attacker = new RpgCharacter();
 
-        character.damage(1001);
+        character.damage(attacker, 1001);
+
         assertThat(character.getHealth()).isEqualTo(0);
         assertThat(character.isAlive()).isFalse();
     }
@@ -52,7 +53,7 @@ class RpgCharacter {
         return health;
     }
 
-    public void damage(int damage) {
+    public void damage(RpgCharacter attacker, int damage) {
         this.health -= damage;
         if(this.health < 0) {
             this.health = 0;
