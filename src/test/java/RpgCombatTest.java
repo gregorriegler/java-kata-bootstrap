@@ -115,8 +115,8 @@ class RpgCharacter {
         }
     }
 
-    private int correctDamage(int damage, int level) {
-        if(this.level >= level + 5) return damage/2;
+    private int correctDamage(int damage, int attackerLevel) {
+        if(this.level >= attackerLevel + 5) return damage/2;
         return damage;
     }
 
