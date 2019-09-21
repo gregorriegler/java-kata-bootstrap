@@ -1,2 +1,2 @@
 #!/bin/bash
-mvn test && git commit -am working || git reset --hard
+gradle test && git commit -am working || git reset --hard
