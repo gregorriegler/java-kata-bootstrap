@@ -108,15 +108,15 @@ class RpgCharacter {
             return;
         }
 
-        this.health -= correctDamage(attacker, damage);
+        this.health -= correctDamage(damage, attacker.level);
         if(this.health < 0) {
             this.health = 0;
             this.alive = false;
         }
     }
 
-    private int correctDamage(RpgCharacter attacker, int damage) {
-        if(this.level >= attacker.level + 5) return damage/2;
+    private int correctDamage(int damage, int level) {
+        if(this.level >= level + 5) return damage/2;
         return damage;
     }
 
