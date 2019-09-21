@@ -36,7 +36,6 @@ public class RpgCombatTest {
         assertThat(victim.getHealth()).isEqualTo(900);
         assertThat(victim.isAlive()).isTrue();
     }
-
     @Test
     void inflictedDamageGreaterThanHealthKillsCharacter() {
         RpgCharacter character = new RpgCharacter();
@@ -46,6 +45,16 @@ public class RpgCombatTest {
 
         assertThat(character.getHealth()).isEqualTo(0);
         assertThat(character.isAlive()).isFalse();
+    }
+
+    @Test
+    void attackerCannotInflictDamageOnHimself() {
+        var attacker = new RpgCharacter();
+
+        attacker.damage(attacker, 100);
+
+        assertThat(attacker.getHealth()).isEqualTo(1000);
+        assertThat(attacker.isAlive()).isTrue();
     }
 }
 class RpgCharacter {
@@ -61,6 +70,10 @@ class RpgCharacter {
     }
 
     public void damage(RpgCharacter attacker, int damage) {
+        if (this == attacker) {
+            return;
+        }
+
         this.health -= damage;
         if(this.health < 0) {
             this.health = 0;
@@ -71,6 +84,5 @@ class RpgCharacter {
     public boolean isAlive() {
         return alive;
     }
-
 }
 
