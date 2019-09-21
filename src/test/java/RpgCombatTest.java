@@ -18,6 +18,15 @@ public class RpgCombatTest {
     }
 
     @Test
+    void healCharacterByAmountMaxesOutAt1000Health() {
+        var character = new RpgCharacter();
+
+        character.heal(10);
+        assertThat(character.getHealth()).isEqualTo(1000);
+        assertThat(character.isAlive()).isTrue();
+    }
+
+    @Test
     void inflictDamageOnCharacterDecreasesItsHealth() {
         var victim = new RpgCharacter();
         var attacker = new RpgCharacter();
@@ -44,7 +53,7 @@ class RpgCharacter {
     private boolean alive = true;
 
     public void heal(int amount) {
-        this.health += amount;
+        this.health = Math.min(1000, this.health + amount);
     }
 
     public int getHealth() {
