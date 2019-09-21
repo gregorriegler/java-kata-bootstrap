@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -7,7 +6,7 @@ import java.util.Objects;
 
 import static org.mockito.Mockito.verify;
 
-public class HelloWorldTest {
+class HelloWorldTest {
 
     private Broadcaster broadcaster;
     private Cell cell;
@@ -62,21 +61,14 @@ public class HelloWorldTest {
         cell.onEvent(new NewGenerationEvent());
         verify(broadcaster).broadcast(new LifeStateEvent(false));
     }
-    private interface Broadcaster {
-        void broadcast(Event event);
-    }
 
-    private interface Event {
-        void dispatch(EventHandler handler);
-    }
-
-    private interface EventHandler {
+    public interface EventHandler {
         void handle(LifeStateEvent event);
 
         void handle(NewGenerationEvent event);
     }
 
-    private class LifeStateEvent implements Event {
+    private static class LifeStateEvent implements Event {
         private final boolean isAlive;
 
         public LifeStateEvent(boolean isAlive) {
@@ -142,6 +134,3 @@ public class HelloWorldTest {
     }
 }
 
-interface Hello {
-    void world();
-}
