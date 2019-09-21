@@ -8,16 +8,12 @@ public class RpgCombatTest {
 
     @Test
     void healCharacterByAmountIncreasesItsHealth() {
-        RpgCharacter character = new RpgCharacter();
-
-        // damage characte upfront to check 1000
+        var character = new RpgCharacter();
+        var attacker = new RpgCharacter();
+        character.damage(attacker, 100);
 
         character.heal(10);
-        assertThat(character.getHealth()).isEqualTo(1010);
-        assertThat(character.isAlive()).isTrue();
-
-        character.heal(20);
-        assertThat(character.getHealth()).isEqualTo(1030);
+        assertThat(character.getHealth()).isEqualTo(910);
         assertThat(character.isAlive()).isTrue();
     }
 
