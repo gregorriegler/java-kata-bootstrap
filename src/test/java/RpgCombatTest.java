@@ -9,8 +9,8 @@ public class RpgCombatTest {
 
     @Test
     void healCharacterByAmountIncreasesItsHealth() {
-        var target = new RpgCharacter();
-        var attacker = new RpgCharacter();
+        var target = createCharacter();
+        var attacker = createCharacter();
         target.damage(attacker, 100);
 
         target.heal(10);
@@ -20,7 +20,7 @@ public class RpgCombatTest {
 
     @Test
     void healCharacterByAmountMaxesOutAt1000Health() {
-        var character = new RpgCharacter();
+        var character = createCharacter();
 
         character.heal(10);
 
@@ -29,8 +29,8 @@ public class RpgCombatTest {
 
     @Test
     void inflictDamageOnCharacterDecreasesItsHealth() {
-        var target = new RpgCharacter();
-        var attacker = new RpgCharacter();
+        var target = createCharacter();
+        var attacker = createCharacter();
 
         target.damage(attacker, 100);
 
@@ -39,8 +39,8 @@ public class RpgCombatTest {
 
     @Test
     void inflictedDamageGreaterThanHealthKillsCharacter() {
-        var target = new RpgCharacter();
-        var attacker = new RpgCharacter();
+        var target = createCharacter();
+        var attacker = createCharacter();
 
         target.damage(attacker, 1001);
 
@@ -49,11 +49,15 @@ public class RpgCombatTest {
 
     @Test
     void attackerCannotInflictDamageOnHimself() {
-        var attacker = new RpgCharacter();
+        var attacker = createCharacter();
 
         attacker.damage(attacker, 100);
 
         assertIsAlive(attacker, 1000);
+    }
+
+    private RpgCharacter createCharacter() {
+        return new RpgCharacter(5);
     }
 
     private void assertIsAlive(RpgCharacter character, int expectedHealth) {
@@ -69,8 +73,13 @@ public class RpgCombatTest {
 }
 
 class RpgCharacter {
+    private final int level;
     private int health = 1000;
     private boolean alive = true;
+
+    public RpgCharacter(int level) {
+        this.level = level;
+    }
 
     public void heal(int amount) {
         this.health = Math.min(1000, this.health + amount);
