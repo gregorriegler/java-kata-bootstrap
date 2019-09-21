@@ -38,13 +38,13 @@ public class RpgCombatTest {
     }
 
     @Test
-    void inflictDamageOnTarget5LevelsHigherDecreasesItsHealthBy100Percent() {
+    void inflictDamageOnTarget5LevelsHigherDecreasesItsHealthBy50Percent() {
         var target = aCharacter(6);
         var attacker = defaultCharacter();
 
         target.damage(attacker, 100);
 
-        assertIsAlive(target, 900);
+        assertIsAlive(target, 950);
     }
 
     @Test
@@ -107,6 +107,8 @@ class RpgCharacter {
         if (this == attacker) {
             return;
         }
+
+        if(this.level >= attacker.level + 5) damage = damage/2;
 
         this.health -= damage;
         if(this.health < 0) {
