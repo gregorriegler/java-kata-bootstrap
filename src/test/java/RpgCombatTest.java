@@ -9,13 +9,13 @@ public class RpgCombatTest {
 
     @Test
     void healCharacterByAmountIncreasesItsHealth() {
-        var character = new RpgCharacter();
+        var target = new RpgCharacter();
         var attacker = new RpgCharacter();
-        character.damage(attacker, 100);
+        target.damage(attacker, 100);
 
-        character.heal(10);
+        target.heal(10);
 
-        assertIsAlive(character, 910);
+        assertIsAlive(target, 910);
     }
 
     @Test
@@ -29,22 +29,22 @@ public class RpgCombatTest {
 
     @Test
     void inflictDamageOnCharacterDecreasesItsHealth() {
-        var victim = new RpgCharacter();
+        var target = new RpgCharacter();
         var attacker = new RpgCharacter();
 
-        victim.damage(attacker, 100);
+        target.damage(attacker, 100);
 
-        assertIsAlive(victim, 900);
+        assertIsAlive(target, 900);
     }
 
     @Test
     void inflictedDamageGreaterThanHealthKillsCharacter() {
-        var character = new RpgCharacter();
+        var target = new RpgCharacter();
         var attacker = new RpgCharacter();
 
-        character.damage(attacker, 1001);
+        target.damage(attacker, 1001);
 
-        assertIsDead(character);
+        assertIsDead(target);
     }
 
     @Test
