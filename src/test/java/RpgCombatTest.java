@@ -14,6 +14,7 @@ public class RpgCombatTest {
         character.damage(attacker, 100);
 
         character.heal(10);
+
         assertIsAlive(character, 910);
     }
 
@@ -22,6 +23,7 @@ public class RpgCombatTest {
         var character = new RpgCharacter();
 
         character.heal(10);
+
         assertIsAlive(character, 1000);
     }
 
@@ -42,8 +44,7 @@ public class RpgCombatTest {
 
         character.damage(attacker, 1001);
 
-        assertThat(character.getHealth()).isEqualTo(0);
-        assertThat(character.isAlive()).isFalse();
+        assertIsDead(character);
     }
 
     @Test
@@ -58,6 +59,11 @@ public class RpgCombatTest {
     private void assertIsAlive(RpgCharacter character, int expectedHealth) {
         assertThat(character.getHealth()).isEqualTo(expectedHealth);
         assertThat(character.isAlive()).isTrue();
+    }
+
+    private void assertIsDead(RpgCharacter character) {
+        assertThat(character.getHealth()).isEqualTo(0);
+        assertThat(character.isAlive()).isFalse();
     }
 
 }
