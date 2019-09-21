@@ -108,13 +108,16 @@ class RpgCharacter {
             return;
         }
 
-        if(this.level >= attacker.level + 5) damage = damage/2;
-
-        this.health -= damage;
+        this.health -= correctDamage(attacker, damage);
         if(this.health < 0) {
             this.health = 0;
             this.alive = false;
         }
+    }
+
+    private int correctDamage(RpgCharacter attacker, int damage) {
+        if(this.level >= attacker.level + 5) return damage/2;
+        return damage;
     }
 
     public boolean isAlive() {
