@@ -9,8 +9,8 @@ public class RpgCombatTest {
 
     @Test
     void healCharacterByAmountIncreasesItsHealth() {
-        var target = createCharacter();
-        var attacker = createCharacter();
+        var target = defaultCharacter();
+        var attacker = defaultCharacter();
         target.damage(attacker, 100);
 
         target.heal(10);
@@ -20,7 +20,7 @@ public class RpgCombatTest {
 
     @Test
     void healCharacterByAmountMaxesOutAt1000Health() {
-        var character = createCharacter();
+        var character = defaultCharacter();
 
         character.heal(10);
 
@@ -29,8 +29,8 @@ public class RpgCombatTest {
 
     @Test
     void inflictDamageOnCharacterDecreasesItsHealth() {
-        var target = createCharacter();
-        var attacker = createCharacter();
+        var target = defaultCharacter();
+        var attacker = defaultCharacter();
 
         target.damage(attacker, 100);
 
@@ -39,8 +39,8 @@ public class RpgCombatTest {
 
     @Test
     void inflictedDamageGreaterThanHealthKillsCharacter() {
-        var target = createCharacter();
-        var attacker = createCharacter();
+        var target = defaultCharacter();
+        var attacker = defaultCharacter();
 
         target.damage(attacker, 1001);
 
@@ -49,15 +49,15 @@ public class RpgCombatTest {
 
     @Test
     void attackerCannotInflictDamageOnHimself() {
-        var attacker = createCharacter();
+        var attacker = defaultCharacter();
 
         attacker.damage(attacker, 100);
 
         assertIsAlive(attacker, 1000);
     }
 
-    private RpgCharacter createCharacter() {
-        return new RpgCharacter(5);
+    private RpgCharacter defaultCharacter() {
+        return new RpgCharacter(1);
     }
 
     private void assertIsAlive(RpgCharacter character, int expectedHealth) {
