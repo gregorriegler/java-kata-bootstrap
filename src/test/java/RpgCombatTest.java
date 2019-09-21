@@ -39,8 +39,8 @@ public class RpgCombatTest {
 
     @Test
     void inflictedDamageGreaterThanHealthKillsCharacter() {
-        RpgCharacter character = new RpgCharacter();
-        RpgCharacter attacker = new RpgCharacter();
+        var character = new RpgCharacter();
+        var attacker = new RpgCharacter();
 
         character.damage(attacker, 1001);
 
