@@ -17,14 +17,25 @@ public class RpgCombatTest {
         assertThat(character.getHealth()).isEqualTo(1010);
     }
 
+    @Test
+    void healCharacterBy20increasesItsHealth() {
+        RpgCharacter character = new RpgCharacter();
+
+        character.heal(20);
+
+        assertThat(character.getHealth()).isEqualTo(1020);
+    }
+
 }
 class RpgCharacter {
-    public void heal(int amount) {
+    private int health = 1000;
 
+    public void heal(int amount) {
+        this.health += amount;
     }
 
     public int getHealth() {
-        return 1010;
+        return health;
     }
 }
 
