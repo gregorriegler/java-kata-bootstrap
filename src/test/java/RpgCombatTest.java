@@ -9,21 +9,14 @@ import static org.mockito.Mockito.verify;
 public class RpgCombatTest {
 
     @Test
-    void healCharacterBy10increasesItsHealth() {
+    void healCharacterByAmountIncreasesItsHealth() {
         RpgCharacter character = new RpgCharacter();
 
         character.heal(10);
-
         assertThat(character.getHealth()).isEqualTo(1010);
-    }
-
-    @Test
-    void healCharacterBy20increasesItsHealth() {
-        RpgCharacter character = new RpgCharacter();
 
         character.heal(20);
-
-        assertThat(character.getHealth()).isEqualTo(1020);
+        assertThat(character.getHealth()).isEqualTo(1030);
     }
 
 }
