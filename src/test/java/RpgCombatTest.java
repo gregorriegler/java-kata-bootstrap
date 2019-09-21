@@ -15,9 +15,11 @@ public class RpgCombatTest {
 
         character.heal(10);
         assertThat(character.getHealth()).isEqualTo(1010);
+        assertThat(character.isAlive()).isTrue();
 
         character.heal(20);
         assertThat(character.getHealth()).isEqualTo(1030);
+        assertThat(character.isAlive()).isTrue();
     }
 
     @Test
