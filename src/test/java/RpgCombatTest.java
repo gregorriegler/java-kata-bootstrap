@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 
 public class RpgCombatTest {
 
+
     @Test
     void healCharacterByAmountIncreasesItsHealth() {
         var character = new RpgCharacter();
@@ -13,8 +14,7 @@ public class RpgCombatTest {
         character.damage(attacker, 100);
 
         character.heal(10);
-        assertThat(character.getHealth()).isEqualTo(910);
-        assertThat(character.isAlive()).isTrue();
+        assertIsAlive(character, 910);
     }
 
     @Test
@@ -22,8 +22,7 @@ public class RpgCombatTest {
         var character = new RpgCharacter();
 
         character.heal(10);
-        assertThat(character.getHealth()).isEqualTo(1000);
-        assertThat(character.isAlive()).isTrue();
+        assertIsAlive(character, 1000);
     }
 
     @Test
@@ -33,9 +32,9 @@ public class RpgCombatTest {
 
         victim.damage(attacker, 100);
 
-        assertThat(victim.getHealth()).isEqualTo(900);
-        assertThat(victim.isAlive()).isTrue();
+        assertIsAlive(victim, 900);
     }
+
     @Test
     void inflictedDamageGreaterThanHealthKillsCharacter() {
         RpgCharacter character = new RpgCharacter();
@@ -53,10 +52,16 @@ public class RpgCombatTest {
 
         attacker.damage(attacker, 100);
 
-        assertThat(attacker.getHealth()).isEqualTo(1000);
-        assertThat(attacker.isAlive()).isTrue();
+        assertIsAlive(attacker, 1000);
     }
+
+    private void assertIsAlive(RpgCharacter character, int expectedHealth) {
+        assertThat(character.getHealth()).isEqualTo(expectedHealth);
+        assertThat(character.isAlive()).isTrue();
+    }
+
 }
+
 class RpgCharacter {
     private int health = 1000;
     private boolean alive = true;
