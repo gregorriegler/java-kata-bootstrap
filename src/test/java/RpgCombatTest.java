@@ -26,6 +26,7 @@ public class RpgCombatTest {
 
         character.damage(100);
         assertThat(character.getHealth()).isEqualTo(900);
+        assertThat(character.isAlive()).isTrue();
     }
 
     @Test
@@ -39,7 +40,7 @@ public class RpgCombatTest {
 }
 class RpgCharacter {
     private int health = 1000;
-    private boolean alive = false;
+    private boolean alive = true;
 
     public void heal(int amount) {
         this.health += amount;
@@ -53,6 +54,7 @@ class RpgCharacter {
         this.health -= damage;
         if(this.health < 0) {
             this.health = 0;
+            this.alive = false;
         }
     }
 
