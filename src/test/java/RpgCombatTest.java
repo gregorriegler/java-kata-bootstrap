@@ -28,7 +28,7 @@ public class RpgCombatTest {
     }
 
     @Test
-    void inflictDamageOnCharacterDecreasesItsHealth() {
+    void inflictDamageOnTargetDecreasesItsHealth() {
         var target = defaultCharacter();
         var attacker = defaultCharacter();
 
@@ -38,7 +38,17 @@ public class RpgCombatTest {
     }
 
     @Test
-    void inflictedDamageGreaterThanHealthKillsCharacter() {
+    void inflictDamageOnTarget5LevelsHigherDecreasesItsHealthBy100Percent() {
+        var target = aCharacter(6);
+        var attacker = defaultCharacter();
+
+        target.damage(attacker, 100);
+
+        assertIsAlive(target, 900);
+    }
+
+    @Test
+    void inflictedDamageGreaterThanHealthKillsTarget() {
         var target = defaultCharacter();
         var attacker = defaultCharacter();
 
@@ -58,6 +68,10 @@ public class RpgCombatTest {
 
     private RpgCharacter defaultCharacter() {
         return new RpgCharacter(1);
+    }
+
+    private RpgCharacter aCharacter(int level) {
+        return new RpgCharacter(level);
     }
 
     private void assertIsAlive(RpgCharacter character, int expectedHealth) {
