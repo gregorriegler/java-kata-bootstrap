@@ -1,3 +1,3 @@
 public interface Event {
-    void dispatch(HelloWorldTest.EventHandler handler);
+    void dispatch(EventHandler handler);
 }

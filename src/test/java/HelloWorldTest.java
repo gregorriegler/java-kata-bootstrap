@@ -2,7 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.Objects;
+import java.util.stream.IntStream;
 
 import static org.mockito.Mockito.verify;
 
@@ -47,9 +47,8 @@ class HelloWorldTest {
     }
 
     private void whenNeighborsReportedAlive(int count) {
-        for (int i = 0; i < count; i++) {
-            cell.onEvent(new LifeStateEvent(true));
-        }
+        IntStream.range(0, count)
+            .forEach(i -> cell.onEvent(new LifeStateEvent(true)));
     }
 
     private void thenCellShouldReportAliveInNextGeneration() {
@@ -62,75 +61,5 @@ class HelloWorldTest {
         verify(broadcaster).broadcast(new LifeStateEvent(false));
     }
 
-    public interface EventHandler {
-        void handle(LifeStateEvent event);
-
-        void handle(NewGenerationEvent event);
-    }
-
-    private static class LifeStateEvent implements Event {
-        private final boolean isAlive;
-
-        public LifeStateEvent(boolean isAlive) {
-            this.isAlive = isAlive;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            LifeStateEvent that = (LifeStateEvent) o;
-            return isAlive == that.isAlive;
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(isAlive);
-        }
-
-        @Override
-        public String toString() {
-            return "LifeStateEvent{" +
-                "isAlive=" + isAlive +
-                '}';
-        }
-
-        @Override
-        public void dispatch(EventHandler handler) {
-            handler.handle(this);
-        }
-    }
-
-    private class Cell implements EventHandler {
-        private final Broadcaster broadcaster;
-        private int livingNeighbors;
-
-        public Cell(Broadcaster broadcaster, boolean isAlive) {
-            this.broadcaster = broadcaster;
-        }
-
-
-        public void onEvent(Event event) {
-            event.dispatch(this);
-        }
-
-        @Override
-        public void handle(LifeStateEvent event) {
-            livingNeighbors++;
-        }
-
-        @Override
-        public void handle(NewGenerationEvent event) {
-            boolean shouldBeAlive = livingNeighbors == 4;
-            broadcaster.broadcast(new LifeStateEvent(shouldBeAlive));
-        }
-    }
-
-    private class NewGenerationEvent implements Event {
-        @Override
-        public void dispatch(EventHandler handler) {
-            handler.handle(this);
-        }
-    }
 }
 
