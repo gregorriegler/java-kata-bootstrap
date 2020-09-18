@@ -5,3 +5,4 @@
 /target/
 .idea
 *.iml
+/gradle/wrapper/gradle-wrapper.jar
