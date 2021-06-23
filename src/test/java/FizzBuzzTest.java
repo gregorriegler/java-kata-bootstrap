@@ -18,11 +18,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  */
 public class FizzBuzzTest {
 
-    // Implementation
-    public static final String FIZZ = "Fizz";
-    public static final String BUZZ = "Buzz";
-    public static final String FIZZ_BUZZ = "FizzBuzz";
-
     private static Stream<Arguments> fizzBuzzExpectations() {
         return Stream.of(
             Arguments.of(1, "1"),
@@ -47,6 +42,11 @@ public class FizzBuzzTest {
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessage(number + " is not a valid input");
     }
+
+    // Implementation
+    public static final String FIZZ = "Fizz";
+    public static final String BUZZ = "Buzz";
+    public static final String FIZZ_BUZZ = "FizzBuzz";
 
     private String fizzBuzz(int number) {
         if (isInvalid(number)) throw new IllegalArgumentException(number + " is not a valid input");
