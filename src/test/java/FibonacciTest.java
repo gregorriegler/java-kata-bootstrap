@@ -8,7 +8,8 @@ public class FibonacciTest {
 
     @ParameterizedTest
     @CsvSource({
-        "0,1"
+        "0,1",
+        "1,1"
     })
     void test(int index, int expected) {
         assertThat(fibonacci(index))
