@@ -12,7 +12,7 @@ public class FibonacciTest {
         "0,1",
         "1,1",
         "2,2",
-//        "3,3",
+        "3,3",
     })
     void test(int index, int expected) {
         assertThat(fibonacci(index))
