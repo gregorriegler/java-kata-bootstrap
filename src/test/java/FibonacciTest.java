@@ -1,9 +1,7 @@
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 
 public class FibonacciTest {
 
@@ -15,14 +13,14 @@ public class FibonacciTest {
         "3,3",
     })
     void test(int index, int expected) {
-        assertThat(fibonacci(index))
-            .isEqualTo(expected);
+        assertThat(fibonacci(index)).isEqualTo(expected);
     }
 
     private int fibonacci(int index) {
-        if(index >= 2) {
+        if (index < 2) {
+            return 1;
+        } else {
             return fibonacci(index - 1) + fibonacci(index - 2);
         }
-        return 1;
     }
 }
