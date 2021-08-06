@@ -3,11 +3,13 @@ package snakegame;
 public class Snake {
 
     private Direction direction;
+    private int length;
 
     public Snake() {
         this.headX = 0;
         this.headY = 0;
         this.direction = Direction.EAST;
+        this.length = 1;
     }
 
     private int headX, headY;
@@ -34,6 +36,10 @@ public class Snake {
 
     public void turnSouth() {
         this.direction = Direction.SOUTH;
+    }
+
+    public int getLength() {
+        return this.length;
     }
 
     public enum Direction{

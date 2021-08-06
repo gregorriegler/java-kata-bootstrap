@@ -64,20 +64,41 @@ public class GameTest {
     }
 
     @Test
-    void snake_moves_south() {
+    void snake_turns_south() {
         Game game = new SnakeGame(size);
         Snake snake = game.world().getSnake();
+
         snake.turnSouth();
 
         assertThat(snake.getHeadX()).isEqualTo(0);
         assertThat(snake.getHeadY()).isEqualTo(0);
         assertEquals(Snake.Direction.SOUTH, snake.getDirection());
+    }
 
+    @Test
+    void snake_moves_south() {
+        Game game = new SnakeGame(size);
+        Snake snake = game.world().getSnake();
+
+        snake.turnSouth();
         snake.move();
 
         assertThat(snake.getHeadX()).isEqualTo(0);
         assertThat(snake.getHeadY()).isEqualTo(1);
     }
 
+    @Test
+    void snake_grows_after_eating_apple() {
+        // Snake 0,0 (Length 1)
+        // Apple 1,0
+
+        Game game = new SnakeGame(size);
+        Snake snake = game.world().getSnake();
+        int currentSnakeSize = snake.getLength();
+
+        snake.move();
+
+        assertThat(snake.getLength()).isEqualTo(currentSnakeSize+1);
+    }
 }
 
