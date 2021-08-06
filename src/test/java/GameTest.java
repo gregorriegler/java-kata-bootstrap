@@ -5,6 +5,7 @@ import snakegame.Snake;
 import snakegame.SnakeGame;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameTest {
 
@@ -50,9 +51,12 @@ public class GameTest {
         Game game = new SnakeGame(size);
         Snake snake = game.world().getSnake();
 
+        // preconditions
         assertThat(snake.getHeadX()).isEqualTo(0);
         assertThat(snake.getHeadY()).isEqualTo(0);
+        assertEquals(Snake.Direction.EAST, snake.getDirection());
 
+        // Action
         snake.move();
 
         assertThat(snake.getHeadX()).isEqualTo(1);
@@ -63,9 +67,11 @@ public class GameTest {
     void snake_moves_south() {
         Game game = new SnakeGame(size);
         Snake snake = game.world().getSnake();
+        snake.turnSouth();
 
         assertThat(snake.getHeadX()).isEqualTo(0);
         assertThat(snake.getHeadY()).isEqualTo(0);
+        assertEquals(Snake.Direction.SOUTH, snake.getDirection());
 
         snake.move();
 
