@@ -12,10 +12,6 @@ public class HelloWorldTest {
         var hello = "hello";
 
         assertThat(hello).isEqualTo("hello");
-
-        Hello helloMock = mock(Hello.class);
-        helloMock.world();
-        verify(helloMock).world();
     }
 }
 
