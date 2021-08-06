@@ -46,7 +46,7 @@ public class GameTest {
     }
 
     @Test
-    void snake_moves() {
+    void snake_moves_east() {
         Game game = new SnakeGame(size);
         Snake snake = game.world().getSnake();
 
@@ -57,6 +57,20 @@ public class GameTest {
 
         assertThat(snake.getHeadX()).isEqualTo(1);
         assertThat(snake.getHeadY()).isEqualTo(0);
+    }
+
+    @Test
+    void snake_moves_south() {
+        Game game = new SnakeGame(size);
+        Snake snake = game.world().getSnake();
+
+        assertThat(snake.getHeadX()).isEqualTo(0);
+        assertThat(snake.getHeadY()).isEqualTo(0);
+
+        snake.move();
+
+        assertThat(snake.getHeadX()).isEqualTo(0);
+        assertThat(snake.getHeadY()).isEqualTo(1);
     }
 
 }
