@@ -1,7 +1,5 @@
 package snakegame;
 
-import java.applet.Applet;
-
 public class World {
 
     private final Size size;
