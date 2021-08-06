@@ -1,8 +1,5 @@
 import org.junit.jupiter.api.Test;
-import snakegame.Game;
-import snakegame.Size;
-import snakegame.Snake;
-import snakegame.SnakeGame;
+import snakegame.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -89,14 +86,16 @@ public class GameTest {
 
     @Test
     void snake_grows_after_eating_apple() {
+        Game game = new SnakeGame(size);
+        World world = game.world();
         // Snake 0,0 (Length 1)
         // Apple 1,0
 
-        Game game = new SnakeGame(size);
         Snake snake = game.world().getSnake();
         int currentSnakeSize = snake.getLength();
 
-        snake.move();
+        world.placeApple(1,0);
+        world.moveSnake();
 
         assertThat(snake.getLength()).isEqualTo(currentSnakeSize+1);
     }

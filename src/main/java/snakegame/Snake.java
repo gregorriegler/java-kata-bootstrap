@@ -42,6 +42,10 @@ public class Snake {
         return this.length;
     }
 
+    public void grow() {
+        ++length;
+    }
+
     public enum Direction{
         EAST,
         SOUTH
