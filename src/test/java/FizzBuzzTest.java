@@ -5,7 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 /**
- * Write a function that takes a number between 1 and 100.
+ * Write a program that takes a number between 1 and 100.
  * It should print the number,
  * but for multiples of 3 print “Fizz”.
  * And for the multiples of 5 print “Buzz”.
