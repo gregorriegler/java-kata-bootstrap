@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -14,45 +17,69 @@ import static org.mockito.Mockito.verify;
  * the green.
  * Navigator: Decides on the next step and decides which code to write.
  * Predictor: Predicts what the outcome of the next Test run will be.
- *
+ * <p>
  * Participants:
- * Alexander Feiertag
- * Georg Dollmann
- * Mehran Hosseini
- * Maria Edlinger
- * Mehmet Ali Akalin
- * Seimi Terasaki
- * Felix Macho
- * Janos Hackl
- * Sergej Strajnak
- * Timot Budavari
- *
+ * <p>
  * Roles:
  * ## Navigator
- *
+ * Janos Hackl
+ * Mehran Hosseini
+ * <p>
  * ## Predictor
- *
+ * Alexander Feiertag
+ * Georg Dollmann
+ * <p>
  * ## Red Referee
- *
+ * Timot Budavari
+ * Maria Edlinger
+ * <p>
  * ## Green Referee
- *
+ * Felix Macho
+ * Mehmet Ali Akalin
+ * <p>
  * ## Refactor Referee
- *
+ * Seimi Terasaki
+ * Sergej Strajnak
+ * <p>
  * =============================================================================
- *
+ * <p>
  * Write a program that takes a number between 1 and 100.
  * It should print the number,
  * but for multiples of 3 print “Fizz”.
  * And for the multiples of 5 print “Buzz”.
  * For multiples of both 3 and 5 print “FizzBuzz”.
- * 1, 2, Fizz, 4, Buzz, ..., 14, FizzBuzz, 16
+ * Example: "1", "2", "Fizz", "4", "Buzz", ..., "14", "FizzBuzz", "16"
  */
 public class FizzBuzzTest {
 
-    @Test
-    void hello() {
-        var hello = "hello";
+    @ParameterizedTest
+    @CsvSource({
+        "1,1",
+        "2,2"
+    })
+    void ordinary_numbers_yield_number_as_string(int number, String expectededString) {
+        assertThat(toFizzBuzzString(number)).isEqualTo(expectededString);
+    }
 
-        assertThat(hello).isEqualTo("hello");
+    @ParameterizedTest
+    @ValueSource(ints = {3, 6, 9})
+    void multiple_of_3_yields_Fizz(int number) {
+        assertThat(toFizzBuzzString(number)).isEqualTo("Fizz");
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {5, 10})
+    void multiple_of_5_yields_Buzz(int number) {
+        assertThat(toFizzBuzzString(number)).isEqualTo("Buzz");
+    }
+
+    private String toFizzBuzzString(int number) {
+        if (number % 3 == 0) {
+            return "Fizz";
+        } else if (number % 5 == 0) {
+            return "Buzz";
+        } else {
+            return "" + number;
+        }
     }
 }
