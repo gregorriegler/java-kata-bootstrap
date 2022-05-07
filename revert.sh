@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git reset --hard HEAD
-echo "=== REVERTED ==="
+echo "\033[0;31m=== REVERTED ==="
