@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./gradlew test
+./test.sh && ./commit.sh || ./revert.sh
