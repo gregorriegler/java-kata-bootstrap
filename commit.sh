@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git add .
-git commit -am "wip"
+git commit --allow-empty -am "wip"
