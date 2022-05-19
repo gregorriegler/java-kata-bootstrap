@@ -4,27 +4,36 @@ import java.time.Instant;
 
 class Ticker {
 
-    private int ticks = 0;
-    private Clock clock;
-    private TickableSpy tickable;
+    private final Clock clock;
+    private final Tickable tickable;
+    private boolean ticked = false;
 
-    public Ticker(Clock clock, TickableSpy tickable) {
+    private Instant then;
+
+    public Ticker(Clock clock, Tickable tickable) {
         this.clock = clock;
         this.tickable = tickable;
     }
 
     public void start() {
-        Instant oldTime = clock.instant();
-        while (ticks == 0) {
-            Instant newTime = clock.instant();
+        then = clock.instant();
+        new Thread(this::waitFor60SecondsThenTick).start();
+    }
 
-            Duration duration = Duration.ofMinutes(1);
+    private void waitFor60SecondsThenTick() {
+        while (!ticked) {
+            Instant now = clock.instant();
+            Duration duration = Duration.between(then, now);
             if (duration.getSeconds() >= 60) {
-                ticks = 1;
-                tickable.tick();
+                tick();
             }
-            oldTime = newTime;
+            then = now;
         }
+    }
+
+    private void tick() {
+        ticked = true;
+        tickable.tick();
     }
 
 

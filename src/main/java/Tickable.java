@@ -1,3 +1,3 @@
-interface Tickable {
+public interface Tickable {
     void tick();
 }
