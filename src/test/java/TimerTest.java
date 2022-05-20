@@ -8,7 +8,7 @@ import static org.awaitility.Awaitility.await;
 public class TimerTest {
 
     @Test
-    void can_turn_on_giving_millis() {
+    void can_turn_on_for_millis() {
         SwitchableSpy switchable = new SwitchableSpy();
         Timer timer = new Timer(switchable);
 
