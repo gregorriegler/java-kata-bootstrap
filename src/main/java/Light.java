@@ -17,4 +17,8 @@ class Light {
         if (status == LightStatus.OFF) return;
         status = LightStatus.OFF;
     }
+
+    public void turnOnForMillis(long millis) {
+        status = LightStatus.ON;
+    }
 }
