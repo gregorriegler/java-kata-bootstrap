@@ -1,3 +1,6 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 class Light {
     LightStatus status;
 
@@ -14,11 +17,20 @@ class Light {
     }
 
     public void turnOff() {
-        if (status == LightStatus.OFF) return;
         status = LightStatus.OFF;
     }
 
     public void turnOnForMillis(long millis) {
         status = LightStatus.ON;
+        new Timer().schedule(turnOffTask(), millis);
+    }
+
+    private TimerTask turnOffTask() {
+        return new TimerTask() {
+            @Override
+            public void run() {
+                turnOff();
+            }
+        };
     }
 }
