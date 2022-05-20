@@ -1,8 +1,8 @@
-class LightController {
+class HomeSecuritySystem {
 
-    private final Switchable light;
+    private final OnForMillis light;
 
-    public LightController(Switchable light) {
+    public HomeSecuritySystem(OnForMillis light) {
         this.light = light;
     }
 

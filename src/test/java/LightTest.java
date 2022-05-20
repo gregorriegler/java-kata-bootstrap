@@ -9,20 +9,22 @@ public class LightTest {
 
     @Test
     void can_turn_on_giving_millis() {
-        Light light = new Light(LightStatus.OFF);
+        SwitchableSpy switchable = new SwitchableSpy();
+        Timer timer = new Timer(switchable);
 
-        light.turnOnForMillis(1);
+        timer.turnOnForMillis(1);
 
-        assertThat(light.getStatus()).isEqualTo(LightStatus.ON);
+        assertThat(switchable.status).isEqualTo("on");
     }
 
     @Test
     void turns_off_after_given_millis() {
-        Light light = new Light(LightStatus.OFF);
+        SwitchableSpy switchable = new SwitchableSpy();
+        Timer timer = new Timer(switchable);
 
-        light.turnOnForMillis(1);
+        timer.turnOnForMillis(1);
 
         await().atMost(Duration.ofMillis(500))
-            .untilAsserted(() -> assertThat(light.getStatus()).isEqualTo(LightStatus.OFF));
+            .untilAsserted(() -> assertThat(switchable.status).isEqualTo("off"));
     }
 }

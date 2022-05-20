@@ -1,4 +1,4 @@
-public class LightSpy implements Switchable {
+public class OnForMillisSpy implements OnForMillis {
 
     public String recentCommand;
 

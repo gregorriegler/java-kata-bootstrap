@@ -1,4 +1,5 @@
 public interface Switchable {
 
-    void turnOnForMillis(long millis);
+    void turnOn();
+    void turnOff();
 }

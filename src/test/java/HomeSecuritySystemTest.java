@@ -28,14 +28,14 @@ import static org.mockito.Mockito.verify;
  *
  * Then it will yield DayTime
  */
-public class LightControllerTest {
+public class HomeSecuritySystemTest {
 
     @Test
     void turns_on_light_for_5min_when_motion_detected() {
-        LightSpy light = new LightSpy();
-        LightController controller = new LightController(light);
+        OnForMillisSpy light = new OnForMillisSpy();
+        HomeSecuritySystem system = new HomeSecuritySystem(light);
 
-        controller.onMotion();
+        system.onMotion();
 
         assertThat(light.recentCommand).isEqualTo("turn on for 300000ms");
     }
