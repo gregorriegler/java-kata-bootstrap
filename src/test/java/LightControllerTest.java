@@ -31,58 +31,12 @@ import static org.mockito.Mockito.verify;
 public class LightControllerTest {
 
     @Test
-    void turns_on_light_when_motion_detected() {
-        Light light = new Light(LightStatus.OFF);
+    void turns_on_light_for_5min_when_motion_detected() {
+        LightSpy light = new LightSpy();
         LightController controller = new LightController(light);
 
         controller.onMotion();
 
-        assertThat(light.getStatus()).isEqualTo(LightStatus.ON);
-    }
-
-    @Test
-    void turns_off_light_after_5min() {
-        Light light = new Light(LightStatus.ON);
-        LightController controller = new LightController(light);
-
-        passFiveMinutes(controller);
-
-        assertThat(light.getStatus()).isEqualTo(LightStatus.OFF);
-    }
-
-    @Test
-    void light_stays_off_after_5min() {
-        Light light = new Light(LightStatus.OFF);
-        LightController controller = new LightController(light);
-
-        passFiveMinutes(controller);
-
-        assertThat(light.getStatus()).isEqualTo(LightStatus.OFF);
-    }
-
-    @Test
-    void turns_off_light_after_another_5min() {
-        Light light = new Light(LightStatus.ON);
-        LightController controller = new LightController(light);
-        lightGotTurnedOffAfter5Min(light, controller);
-        light.turnOn();
-
-        passFiveMinutes(controller);
-
-        assertThat(light.getStatus()).isEqualTo(LightStatus.OFF);
-    }
-
-    private void passFiveMinutes(LightController controller) {
-        controller.tick();
-        controller.tick();
-        controller.tick();
-        controller.tick();
-        controller.tick();
-    }
-
-    private void lightGotTurnedOffAfter5Min(Light light, LightController controller) {
-        passFiveMinutes(controller);
-
-        assertThat(light.getStatus()).isEqualTo(LightStatus.OFF);
+        assertThat(light.recentCommand).isEqualTo("turn on for 300000ms");
     }
 }

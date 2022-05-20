@@ -1,3 +1,3 @@
 enum LightStatus {
-    ON, OFF;
+    ON, OFF
 }

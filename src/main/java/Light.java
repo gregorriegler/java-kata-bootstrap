@@ -1,7 +1,7 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-class Light {
+class Light implements Switchable {
     LightStatus status;
 
     public Light(LightStatus status) {
@@ -12,14 +12,11 @@ class Light {
         return status;
     }
 
-    void turnOn() {
-        status = LightStatus.ON;
-    }
-
-    public void turnOff() {
+    private void turnOff() {
         status = LightStatus.OFF;
     }
 
+    @Override
     public void turnOnForMillis(long millis) {
         status = LightStatus.ON;
         new Timer().schedule(turnOffTask(), millis);

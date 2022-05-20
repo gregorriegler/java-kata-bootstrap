@@ -1,22 +1,12 @@
-class LightController implements Tickable {
+class LightController {
 
-    private final Light light;
-    private long ticks = 0;
+    private final Switchable light;
 
-    public LightController(Light light) {
+    public LightController(Switchable light) {
         this.light = light;
     }
 
     public void onMotion() {
-        light.turnOn();
-    }
-
-    @Override
-    public void tick() {
-        ticks++;
-        if (ticks >= 5) {
-            ticks = 0;
-            light.turnOff();
-        }
+        light.turnOnForMillis(1000 * 60 * 5);
     }
 }
