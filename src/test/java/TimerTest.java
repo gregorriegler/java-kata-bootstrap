@@ -5,7 +5,7 @@ import java.time.Duration;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
-public class LightTest {
+public class TimerTest {
 
     @Test
     void can_turn_on_giving_millis() {

@@ -1,8 +1,8 @@
 class HomeSecuritySystem {
 
-    private final OnForMillis light;
+    private final Timer light;
 
-    public HomeSecuritySystem(OnForMillis light) {
+    public HomeSecuritySystem(Timer light) {
         this.light = light;
     }
 

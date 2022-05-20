@@ -1,13 +1,12 @@
 import java.util.TimerTask;
 
-class Timer implements OnForMillis {
+class Timer {
     private final Switchable switchable;
 
     public Timer(Switchable switchable) {
         this.switchable = switchable;
     }
 
-    @Override
     public void turnOnForMillis(long millis) {
         switchable.turnOn();
         new java.util.Timer().schedule(turnOffTask(), millis);

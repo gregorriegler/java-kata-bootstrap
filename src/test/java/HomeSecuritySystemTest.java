@@ -32,7 +32,7 @@ public class HomeSecuritySystemTest {
 
     @Test
     void turns_on_light_for_5min_when_motion_detected() {
-        OnForMillisSpy light = new OnForMillisSpy();
+        TimerSpy light = new TimerSpy();
         HomeSecuritySystem system = new HomeSecuritySystem(light);
 
         system.onMotion();

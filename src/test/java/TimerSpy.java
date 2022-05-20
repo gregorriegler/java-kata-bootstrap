@@ -1,6 +1,10 @@
-public class OnForMillisSpy implements OnForMillis {
+public class TimerSpy extends Timer {
 
     public String recentCommand;
+
+    public TimerSpy() {
+        super(null);
+    }
 
     @Override
     public void turnOnForMillis(long millis) {
