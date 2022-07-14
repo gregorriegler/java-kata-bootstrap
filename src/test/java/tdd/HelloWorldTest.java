@@ -1,11 +1,8 @@
 package tdd;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class HelloWorldTest {
 
@@ -13,10 +10,6 @@ public class HelloWorldTest {
     void hello() {
         var hello = "hello";
 
-        assertThat(hello).isEqualTo("hello");
+        assertThat(hello).isEqualTo("world");
     }
-}
-
-interface Hello {
-    void world();
 }
