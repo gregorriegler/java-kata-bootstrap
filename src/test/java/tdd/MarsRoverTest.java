@@ -1,5 +1,6 @@
 package tdd;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -16,6 +17,8 @@ public class MarsRoverTest {
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
     }
 
+    @Nested
+    class Turns {}
     @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
     @CsvSource({
         "'',NORTH,0,0",
