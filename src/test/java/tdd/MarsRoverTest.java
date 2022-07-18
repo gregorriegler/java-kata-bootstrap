@@ -21,7 +21,7 @@ public class MarsRoverTest {
     @Nested
     class Turns {
 
-        @DisplayName("test")
+        @DisplayName("to the right")
         @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
             "'',NORTH,0,0",
