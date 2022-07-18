@@ -18,15 +18,14 @@ public class MarsRoverTest {
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
     }
     
-    @Test
     @ParameterizedTest
     @CsvSource({
         "'',NORTH,0,0"
     })
-    public void turns() {
+    public void turns(String commands) {
         var rover = new MarsRover();
         
-        rover.sendCommands("");
+        rover.sendCommands(commands);
         
         assertThat(rover.facing()).isEqualTo(Direction.NORTH);
     }
