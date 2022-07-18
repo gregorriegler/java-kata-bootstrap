@@ -18,7 +18,6 @@ public class MarsRoverTest {
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
     }
 
-    @Nested
     class Turns {
 
         @DisplayName("test")
