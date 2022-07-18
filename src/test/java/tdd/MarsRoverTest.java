@@ -18,7 +18,7 @@ public class MarsRoverTest {
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
     }
     
-    @ParameterizedTest
+    @ParameterizedTest(name = "rover turning")
     @CsvSource({
         "'',NORTH,0,0"
     })
