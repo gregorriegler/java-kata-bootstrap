@@ -8,9 +8,7 @@ public enum Direction {
     ;
 
     Direction right() {
-        int index = atRightest() 
-            ? 0 
-            : this.ordinal() + 1;
+        int index = atRightest() ? 0 : this.ordinal() + 1;
         return Direction.values()[index];
     }
 
