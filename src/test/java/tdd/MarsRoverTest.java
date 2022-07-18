@@ -17,23 +17,26 @@ public class MarsRoverTest {
         assertThat(rover.facing()).isEqualTo(Direction.NORTH);
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
     }
-    
+
     @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
     @CsvSource({
         "'',NORTH,0,0",
+        "'r',EAST,0,0",
     })
     public void turns(String commands, Direction expectedFacing, int expectedX, int expectedY) {
         var rover = new MarsRover();
-        
+
         rover.sendCommands(commands);
-        
+
         assertThat(rover.facing()).isEqualTo(expectedFacing);
         assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
     }
 
     private enum Direction {
-        NORTH
-
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST,
     }
 
     private static class Position {
@@ -65,12 +68,20 @@ public class MarsRoverTest {
     }
 
     private class MarsRover {
+
+        private Direction facing = Direction.NORTH;
+
         public void sendCommands(String commands) {
+
+            for (char command : commands.toCharArray()) {
+            facing = Direction.EAST;
+
+            }
 
         }
 
         public Direction facing() {
-            return Direction.NORTH;
+            return facing;
         }
 
         public Position position() {
