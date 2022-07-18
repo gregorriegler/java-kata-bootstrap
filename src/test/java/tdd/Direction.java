@@ -11,6 +11,7 @@ public enum Direction {
         if(this.ordinal() == Direction.values().length-1) {
             return Direction.values()[0];
         }
-        return Direction.values()[this.ordinal()+1];
+        int i = this.ordinal() + 1;
+        return Direction.values()[i];
     }
 }
