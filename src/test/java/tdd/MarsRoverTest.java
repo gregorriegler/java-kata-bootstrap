@@ -64,12 +64,12 @@ public class MarsRoverTest {
             return Direction.NORTH;
         }
 
-        public Position position() {
-            return new Position(0, 0);
+        public void sendCommands(String commands) {
+
         }
 
-        public void sendCommands(String commands) {
-            
+        public Position position() {
+            return new Position(0, 0);
         }
     }
 }
