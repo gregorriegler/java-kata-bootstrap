@@ -31,13 +31,25 @@ public class MarsRoverTest {
             "rr,SOUTH,0,0",
             "rrr,WEST,0,0",
             "rrrr,NORTH,0,0",
+        })
+        public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
+            var rover = new MarsRover();
 
+            rover.sendCommands(commands);
+
+            assertThat(rover.facing()).isEqualTo(expectedFacing);
+            assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
+        }
+        
+        @DisplayName("to the left")
+        @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
+        @CsvSource({
             "l,WEST,0,0",
             "ll,SOUTH,0,0",
             "lll,EAST,0,0",
             "llll,NORTH,0,0",
         })
-        public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
+        public void left(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
 
             rover.sendCommands(commands);
