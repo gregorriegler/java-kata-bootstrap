@@ -22,6 +22,7 @@ public class MarsRoverTest {
         "r,EAST,0,0",
         "rr,SOUTH,0,0",
         "rrr,WEST,0,0",
+        "rrrr,NORTH,0,0",
     })
     public void turns(String commands, Direction expectedFacing, int expectedX, int expectedY) {
         var rover = new MarsRover();
