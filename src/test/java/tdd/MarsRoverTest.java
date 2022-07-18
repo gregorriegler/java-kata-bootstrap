@@ -60,12 +60,12 @@ public class MarsRoverTest {
     }
 
     private class MarsRover {
-        public Direction facing() {
-            return Direction.NORTH;
-        }
-
         public void sendCommands(String commands) {
 
+        }
+
+        public Direction facing() {
+            return Direction.NORTH;
         }
 
         public Position position() {
