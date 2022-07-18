@@ -8,8 +8,19 @@ public class HelloWorldTest {
 
     @Test
     void hello() {
-        var hello = "hello";
+        var rover = new MarsRover();
 
-        assertThat(hello).isEqualTo("world");
+        assertThat(rover.facing()).isEqualTo(Direction.NORTH);
+    }
+
+    private class MarsRover {
+        public Direction facing() {
+            return Direction.NORTH;
+        }
+    }
+    
+    private enum Direction {
+        NORTH
+
     }
 }
