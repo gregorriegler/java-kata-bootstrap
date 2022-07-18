@@ -21,6 +21,7 @@ public class MarsRoverTest {
     @Nested
     class Turns {
 
+        @DisplayName("test")
         @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
             "'',NORTH,0,0",
@@ -35,7 +36,6 @@ public class MarsRoverTest {
             "lll,EAST,0,0",
             "llll,NORTH,0,0",
         })
-        @DisplayName("test")
         public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
 
