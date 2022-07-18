@@ -74,7 +74,9 @@ public class MarsRoverTest {
         public void sendCommands(String commands) {
 
             for (char command : commands.toCharArray()) {
+                if (command == 'r') {
                     facing = Direction.EAST;
+                }
 
             }
 
