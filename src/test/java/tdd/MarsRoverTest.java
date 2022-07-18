@@ -21,7 +21,7 @@ public class MarsRoverTest {
     @Test
     @ParameterizedTest
     @CsvSource({
-        "'',NORTH,("
+        "'',NORTH,'("
     })
     public void turns() {
         var rover = new MarsRover();
