@@ -34,7 +34,7 @@ public class MarsRoverTest {
             "lll,EAST,0,0",
             "llll,NORTH,0,0",
         })
-        public void turns(String commands, Direction expectedFacing, int expectedX, int expectedY) {
+        public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
 
             rover.sendCommands(commands);
