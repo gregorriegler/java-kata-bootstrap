@@ -5,4 +5,9 @@ public enum Direction {
     EAST,
     SOUTH,
     WEST,
+    ;
+
+    Direction right() {
+        return Direction.values()[this.ordinal()+1];
+    }
 }
