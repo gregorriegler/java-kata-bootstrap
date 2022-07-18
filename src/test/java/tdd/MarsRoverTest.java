@@ -30,13 +30,6 @@ public class MarsRoverTest {
         assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
     }
 
-    private enum Direction {
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST,
-    }
-
     private class MarsRover {
 
         private Direction facing = Direction.NORTH;

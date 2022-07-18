@@ -1,2 +1,8 @@
-package tdd;public class Direction {
+package tdd;
+
+public enum Direction {
+    NORTH,
+    EAST,
+    SOUTH,
+    WEST,
 }
