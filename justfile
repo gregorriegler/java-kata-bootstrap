@@ -1,6 +1,6 @@
 commit:
     @git add . 
-    @git commit -am "wip" || true
+    -@git commit -am "wip"
 
 test:
     clear
