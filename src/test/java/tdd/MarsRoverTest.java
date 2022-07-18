@@ -68,7 +68,8 @@ public class MarsRoverTest {
             return new Position(0, 0);
         }
 
-        public void sendCommands(String s) {
+        public void sendCommands(String commands) {
+            
         }
     }
 }
