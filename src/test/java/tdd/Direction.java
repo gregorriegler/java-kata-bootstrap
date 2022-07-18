@@ -12,7 +12,7 @@ public enum Direction {
         return Direction.values()[index];
     }
 
-    public Direction left() {
+    Direction left() {
         int index = atLeftest() ? Direction.values().length - 1 : this.ordinal() - 1;
         return Direction.values()[index];
     }
@@ -20,7 +20,7 @@ public enum Direction {
     private boolean atRightest() {
         return this.ordinal() == Direction.values().length - 1;
     }
-    
+
     private boolean atLeftest() {
         return this.ordinal() == 0;
     }
