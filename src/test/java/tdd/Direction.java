@@ -13,7 +13,7 @@ public enum Direction {
     }
 
     public Direction left() {
-        int index = atLeftest() ? Direction.values().length - 1 : this.ordinal() + 1;
+        int index = atLeftest() ? Direction.values().length - 1 : this.ordinal() - 1;
         return Direction.values()[index];
     }
 
