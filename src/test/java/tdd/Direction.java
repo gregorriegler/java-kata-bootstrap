@@ -8,9 +8,13 @@ public enum Direction {
     ;
 
     Direction right() {
-        int index = this.ordinal() == Direction.values().length - 1 
+        int index = atEnd() 
             ? 0 
             : this.ordinal() + 1;
         return Direction.values()[index];
+    }
+
+    private boolean atEnd() {
+        return this.ordinal() == Direction.values().length - 1;
     }
 }
