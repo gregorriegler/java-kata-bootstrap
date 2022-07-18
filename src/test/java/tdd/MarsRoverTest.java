@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MarsRoverTest {
 
     @Test
-    void rover() {
+    void initializes() {
         var rover = new MarsRover();
 
         assertThat(rover.facing()).isEqualTo(Direction.NORTH);
