@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MarsRoverTest {
@@ -14,6 +15,15 @@ public class MarsRoverTest {
 
         assertThat(rover.facing()).isEqualTo(Direction.NORTH);
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
+    }
+    
+    @Test
+    public void turns() {
+        var rover = new MarsRover();
+        
+        rover.sendCommands("");
+        
+        assertThat(rover.facing()).isEqualTo(Direction.NORTH);
     }
 
     private enum Direction {
@@ -56,6 +66,9 @@ public class MarsRoverTest {
 
         public Position position() {
             return new Position(0, 0);
+        }
+
+        public void sendCommands(String s) {
         }
     }
 }
