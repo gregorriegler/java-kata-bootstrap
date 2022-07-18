@@ -15,8 +15,8 @@ public class MarsRoverTest {
     void initializes() {
         var rover = new MarsRover();
 
-        assertThat(rover.facing()).isEqualTo(Direction.NORTH);
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
+        assertThat(rover.facing()).isEqualTo(Direction.NORTH);
     }
 
     @Nested
