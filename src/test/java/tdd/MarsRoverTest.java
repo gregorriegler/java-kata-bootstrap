@@ -22,12 +22,12 @@ public class MarsRoverTest {
     @CsvSource({
         "'',NORTH,0,0"
     })
-    public void turns(String commands) {
+    public void turns(String commands, Direction expectedFacing) {
         var rover = new MarsRover();
         
         rover.sendCommands(commands);
         
-        assertThat(rover.facing()).isEqualTo(Direction.NORTH);
+        assertThat(rover.facing()).isEqualTo(expectedFacing);
     }
 
     private enum Direction {
