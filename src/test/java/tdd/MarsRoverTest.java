@@ -1,5 +1,6 @@
 package tdd;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -34,6 +35,7 @@ public class MarsRoverTest {
             "lll,EAST,0,0",
             "llll,NORTH,0,0",
         })
+        @DisplayName("test")
         public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
 
