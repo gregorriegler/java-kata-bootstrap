@@ -9,7 +9,10 @@ class MarsRover {
         for (char command : commands.toCharArray()) {
             if (command == 'r') {
                 facing = facing.right();
+            } else if (command == 'l') {
+               facing = facing.left(); 
             }
+
 
         }
 
