@@ -1,3 +1,8 @@
+goal +MESSAGE:
+    git pull --rebase
+    @git commit --allow-empty -m "{{MESSAGE}}"
+    git push
+
 commit:
     @git add . 
     -@git commit -am "wip"
@@ -7,8 +12,10 @@ test:
     @./gradlew test
     
 test-commit:
+    git pull --rebase
     just test 
     just commit
+    git push
     
 tdd:
     watchexec -e java just test
