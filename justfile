@@ -1,6 +1,6 @@
 goal +MESSAGE:
     git pull --rebase
-    git commit --allow-empty -m "{{MESSAGE}}"
+    git commit --allow-empty -m "Goal: {{MESSAGE}}"
     git push
 
 commit:
