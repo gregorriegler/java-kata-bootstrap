@@ -82,8 +82,6 @@ public class MarsRoverTest {
         @ParameterizedTest(name = "rover moving \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
             "f,NORTH,0,-1",
-            "ff,NORTH,0,-2",
-            "fff,NORTH,0,2",
         })
         public void backwards(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
