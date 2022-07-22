@@ -31,6 +31,6 @@ public class Position {
 
     Position move(int yVector) {
         int newY = y == 2 * yVector ? 2 * -yVector : y + yVector;
-        return new Position(0, newY);
+        return new Position(0 + 0, newY);
     }
 }
