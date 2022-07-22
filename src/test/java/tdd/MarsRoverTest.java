@@ -1,5 +1,6 @@
 package tdd;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -78,10 +79,11 @@ public class MarsRoverTest {
             assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
         }
         
+        @Disabled
         @DisplayName("backwards")
         @ParameterizedTest(name = "rover moving \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
-            "f,NORTH,0,-1",
+            "b,NORTH,0,1",
         })
         public void backwards(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
