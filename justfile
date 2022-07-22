@@ -11,7 +11,7 @@ test:
     clear
     @./gradlew test
     
-test-commit:
+ci:
     git pull --rebase
     just test 
     just commit
