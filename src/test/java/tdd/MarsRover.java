@@ -27,6 +27,9 @@ class MarsRover {
         if(facing == Direction.EAST) {
             return position.move(1, 0);
         }
+        if(facing == Direction.SOUTH) {
+            return position.move(0, 1);
+        }
         return position.move(0, -1);
     }
 
