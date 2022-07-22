@@ -29,7 +29,7 @@ public class Position {
         return Objects.hash(x, y);
     }
 
-    Position move(int yVector, int xVector) {
+    Position move(int xVector, int yVector) {
         int newY = y == 2 * yVector ? 2 * -yVector : y + yVector;
         return new Position(0 + xVector, newY);
     }

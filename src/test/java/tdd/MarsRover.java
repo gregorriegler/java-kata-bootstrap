@@ -20,11 +20,11 @@ class MarsRover {
     }
 
     private Position backwards() {
-        return position.move(1, 0);
+        return position.move(0, 1);
     }
 
     private Position forward() {
-        return position.move(-1, 0);
+        return position.move(0, -1);
     }
 
     public Direction facing() {
