@@ -66,6 +66,7 @@ public class MarsRoverTest {
         @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
             "f,NORTH,0,-1",
+            "f,NORTH,0,-1",
         })
         public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
