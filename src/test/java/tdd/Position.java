@@ -39,7 +39,5 @@ public class Position {
     private int wrapAround(int y, int worldSize, int vector) {
         return y == worldSize * vector ?
             worldSize * -vector : y + vector;
-        
-        
     }
 }
