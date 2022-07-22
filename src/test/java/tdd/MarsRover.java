@@ -22,11 +22,7 @@ class MarsRover {
     }
 
     private Position forward() {
-        return move();
-    }
-
-    private Position move() {
-        return new Position(0, position.y - 1);
+        return position.move();
     }
 
     public Direction facing() {

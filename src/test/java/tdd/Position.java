@@ -28,4 +28,8 @@ public class Position {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    Position move() {
+        return new Position(0, y - 1);
+    }
 }
