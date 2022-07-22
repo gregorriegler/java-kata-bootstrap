@@ -11,7 +11,7 @@ test:
     clear
     @./gradlew test
     
-ci:
+test-commit:
     git pull --rebase
     just test 
     just commit
@@ -20,7 +20,7 @@ ci:
 tdd:
     watchexec -e java just test
 
-tdd-commit:
+ci:
     watchexec -e java just test-commit
 
 revert:
