@@ -59,4 +59,26 @@ public class MarsRoverTest {
         }
     }
 
+    @Nested
+    class Moves {
+
+        @DisplayName("to the right")
+        @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
+        @CsvSource({
+            "'',NORTH,0,0",
+
+            "r,EAST,0,0",
+            "rr,SOUTH,0,0",
+            "rrr,WEST,0,0",
+            "rrrr,NORTH,0,0",
+        })
+        public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
+            var rover = new MarsRover();
+
+            rover.sendCommands(commands);
+
+            assertThat(rover.facing()).isEqualTo(expectedFacing);
+            assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
+        }
+    }
 }
