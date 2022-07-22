@@ -30,8 +30,8 @@ public class Position {
         return Objects.hash(x, y);
     }
 
-    Position move() {
-        newY = y == -2 ? 2 : y + -1;
+    Position move(int yVector) {
+        newY = y == -2 ? 2 : y + yVector;
         return new Position(0, newY);
     }
 }
