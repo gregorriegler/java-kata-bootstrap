@@ -84,6 +84,7 @@ public class MarsRoverTest {
         @CsvSource({
             "b,NORTH,0,1",
             "bb,NORTH,0,2",
+            "bbb,NORTH,0,-2",
         })
         public void backwards(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
