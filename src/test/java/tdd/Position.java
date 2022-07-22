@@ -31,7 +31,7 @@ public class Position {
     }
 
     Position move() {
-        newY = y == -2 ? 2 : y -1;
+        newY = y == -2 ? 2 : y + -1;
         return new Position(0, newY);
     }
 }
