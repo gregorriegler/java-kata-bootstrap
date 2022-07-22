@@ -77,5 +77,20 @@ public class MarsRoverTest {
             assertThat(rover.facing()).isEqualTo(expectedFacing);
             assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
         }
+        @DisplayName("forward")
+        @ParameterizedTest(name = "rover moving \"{0}\" faces {1} at ({2},{3})")
+        @CsvSource({
+            "f,NORTH,0,-1",
+            "ff,NORTH,0,-2",
+            "fff,NORTH,0,2",
+        })
+        public void backwards(String commands, Direction expectedFacing, int expectedX, int expectedY) {
+            var rover = new MarsRover();
+
+            rover.sendCommands(commands);
+
+            assertThat(rover.facing()).isEqualTo(expectedFacing);
+            assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
+        }
     }
 }
