@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Position {
     private final int x;
     public final int y;
-    private int newY;
 
     public Position(int x, int y) {
         this.x = x;
