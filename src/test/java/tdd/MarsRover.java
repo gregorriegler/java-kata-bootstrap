@@ -2,6 +2,7 @@ package tdd;
 
 class MarsRover {
 
+    private Position position = new Position(0, 0);
     private Direction facing = Direction.NORTH;
 
     public void sendCommands(String commands) {
@@ -11,6 +12,8 @@ class MarsRover {
                 facing = facing.right();
             } else if (command == 'l') {
                facing = facing.left(); 
+            } else if (command == 'f') {
+               position = new Position(0,1); 
             }
 
 
@@ -23,6 +26,6 @@ class MarsRover {
     }
 
     public Position position() {
-        return new Position(0, 0);
+        return position;
     }
 }
