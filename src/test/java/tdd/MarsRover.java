@@ -14,7 +14,6 @@ class MarsRover {
                facing = facing.left(); 
             } else if (command == 'f') {
                position = new Position(0,-1); 
-               
             }
 
 
