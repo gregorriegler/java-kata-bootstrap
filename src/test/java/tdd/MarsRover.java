@@ -13,12 +13,16 @@ class MarsRover {
             } else if (command == 'l') {
                facing = facing.left(); 
             } else if (command == 'f') {
-               position = new Position(0,-1); 
+               position = getPosition(); 
             }
 
 
         }
 
+    }
+
+    private Position getPosition() {
+        return new Position(0, -1);
     }
 
     public Direction facing() {
