@@ -63,7 +63,7 @@ public class MarsRoverTest {
     class Moves {
 
         @DisplayName("forward")
-        @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
+        @ParameterizedTest(name = "rover moving \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
             "f,NORTH,0,-1",
             "ff,NORTH,0,-2",
