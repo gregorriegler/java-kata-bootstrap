@@ -40,7 +40,7 @@ public class MarsRoverTest {
             assertThat(rover.facing()).isEqualTo(expectedFacing);
             assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
         }
-        
+
         @DisplayName("to the left")
         @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
