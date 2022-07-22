@@ -11,9 +11,9 @@ class MarsRover {
             if (command == 'r') {
                 facing = facing.right();
             } else if (command == 'l') {
-               facing = facing.left(); 
+                facing = facing.left();
             } else if (command == 'f') {
-               position = forward(); 
+                position = forward();
             }
 
 
