@@ -31,8 +31,12 @@ public class Position {
 
     Position move(int xVector, int yVector) {
         int worldSize = 2;
-        int newY = y == worldSize * yVector ? worldSize * -yVector : y + yVector;
+        int newY = getNewY(yVector, worldSize);
         int newX = x == worldSize * xVector ? worldSize * -xVector : x + xVector;
         return new Position(newX, newY);
+    }
+
+    private int getNewY(int yVector, int worldSize) {
+        return y == worldSize * yVector ? worldSize * -yVector : y + yVector;
     }
 }
