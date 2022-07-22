@@ -13,7 +13,7 @@ class MarsRover {
             } else if (command == 'l') {
                facing = facing.left(); 
             } else if (command == 'f') {
-               position = getPosition(); 
+               position = forward(); 
             }
 
 
@@ -21,7 +21,7 @@ class MarsRover {
 
     }
 
-    private Position getPosition() {
+    private Position forward() {
         return new Position(0, -1);
     }
 
