@@ -22,6 +22,10 @@ class MarsRover {
     }
 
     private Position forward() {
+        return getPosition();
+    }
+
+    private Position getPosition() {
         return new Position(0, position.y - 1);
     }
 
