@@ -6,7 +6,6 @@ class MarsRover {
     private Direction facing = Direction.NORTH;
 
     public void sendCommands(String commands) {
-
         for (char command : commands.toCharArray()) {
             if (command == 'r') {
                 facing = facing.right();
@@ -17,10 +16,7 @@ class MarsRover {
             } else if (command == 'b') {
                 position = backwards();
             }
-
-
         }
-
     }
 
     private Position backwards() {
