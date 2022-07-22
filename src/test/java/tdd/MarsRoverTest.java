@@ -62,7 +62,7 @@ public class MarsRoverTest {
     @Nested
     class Moves {
 
-        @DisplayName("to the right")
+        @DisplayName("forward")
         @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
             "f,NORTH,0,-1",
