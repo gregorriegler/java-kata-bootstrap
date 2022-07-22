@@ -3,8 +3,8 @@ package tdd;
 import java.util.Objects;
 
 public class Position {
-    private final int x;
     public final int y;
+    private final int x;
 
     public Position(int x, int y) {
         this.x = x;
@@ -37,8 +37,7 @@ public class Position {
     }
 
     private int wrapAround(int y, int worldSize, int vector) {
-        return y == worldSize * vector ? 
-            worldSize * -vector 
-            : y + vector;
+        return y == worldSize * vector ?
+            worldSize * -vector : y + vector;
     }
 }
