@@ -67,6 +67,7 @@ public class MarsRoverTest {
         @CsvSource({
             "f,NORTH,0,-1",
             "ff,NORTH,0,-2",
+            "fff,NORTH,0,2",
         })
         public void right(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();

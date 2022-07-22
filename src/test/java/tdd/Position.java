@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Position {
     private final int x;
     public final int y;
+    private int newY;
 
     public Position(int x, int y) {
         this.x = x;
@@ -30,6 +31,7 @@ public class Position {
     }
 
     Position move() {
-        return new Position(0, y - 1);
+        newY = y == -2 ? 2 : y - 1;
+        return new Position(0, newY);
     }
 }
