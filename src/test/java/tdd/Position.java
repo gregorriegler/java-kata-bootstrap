@@ -36,7 +36,7 @@ public class Position {
         return new Position(newX, newY);
     }
 
-    private int wrapAround(int y, int worldSize, int yVector) {
-        return y == worldSize * yVector ? worldSize * -yVector : y + yVector;
+    private int wrapAround(int y, int worldSize, int vector) {
+        return y == worldSize * vector ? worldSize * -vector : y + vector;
     }
 }
