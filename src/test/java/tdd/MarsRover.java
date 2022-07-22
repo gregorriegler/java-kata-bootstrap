@@ -14,11 +14,17 @@ class MarsRover {
                 facing = facing.left();
             } else if (command == 'f') {
                 position = forward();
+            } else if (command == 'b') {
+                position = backwards();
             }
 
 
         }
 
+    }
+
+    private Position backwards() {
+        return position.move(1);
     }
 
     private Position forward() {
