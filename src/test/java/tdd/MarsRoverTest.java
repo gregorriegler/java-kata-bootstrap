@@ -65,8 +65,6 @@ public class MarsRoverTest {
         @DisplayName("to the right")
         @ParameterizedTest(name = "rover turning \"{0}\" faces {1} at ({2},{3})")
         @CsvSource({
-            "'',NORTH,0,0",
-
             "r,EAST,0,0",
             "rr,SOUTH,0,0",
             "rrr,WEST,0,0",
