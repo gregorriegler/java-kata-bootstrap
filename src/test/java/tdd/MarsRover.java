@@ -7,22 +7,26 @@ class MarsRover {
 
     public void sendCommands(String commands) {
         for (char command : commands.toCharArray()) {
-            switch (command) {
-                case 'r':
-                    facing = facing.right();
-                    break;
-                case 'l':
-                    facing = facing.left();
-                    break;
-                case 'f':
-                    position = forward();
-                    break;
-                case 'b':
-                    position = backwards();
-                    break;
-                default:
-                    throw new IllegalArgumentException("Illegal input");
-            }
+            executeCommand(command);
+        }
+    }
+
+    private void executeCommand(char command) {
+        switch (command) {
+            case 'r':
+                facing = facing.right();
+                break;
+            case 'l':
+                facing = facing.left();
+                break;
+            case 'f':
+                position = forward();
+                break;
+            case 'b':
+                position = backwards();
+                break;
+            default:
+                throw new IllegalArgumentException("Illegal input");
         }
     }
 
