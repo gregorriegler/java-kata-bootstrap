@@ -33,7 +33,7 @@ class MarsRover {
         if(facing == Direction.WEST) {
             return position.moveByVector(facing.vector);
         }
-        return position.move(0, -1);
+        return position.moveByVector(facing.vector);
     }
 
     public Direction facing() {
