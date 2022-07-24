@@ -20,6 +20,7 @@ class MarsRover {
                 case 'b':
                     position = backwards();
                     break;
+                default:
             }
         }
     }
