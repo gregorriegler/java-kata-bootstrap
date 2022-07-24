@@ -43,16 +43,16 @@ class MarsRover {
     }
 
     private Position forward() {
-        return getMove();
+        return newMove(facing.vector);
     }
 
-    private Position getMove() {
-        return position.move(facing.vector.x, facing.vector.y);
+    private Position newMove(Position facing) {
+        return position.move(facing.x, facing.y);
     }
 
     private Position backwards() {
         Position vector = facing.vector.invert();
-        return position.move(vector.x, vector.y);
+        return newMove(vector);
     }
 
     public Direction facing() {
