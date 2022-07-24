@@ -24,4 +24,8 @@ public enum Direction {
     private boolean atLeftest() {
         return this.ordinal() == 0;
     }
+
+    Position getVector() {
+        return new Position(1, 0);
+    }
 }
