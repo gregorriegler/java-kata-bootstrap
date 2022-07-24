@@ -7,6 +7,12 @@ public enum Direction {
     WEST,
     ;
 
+    private final Position position;
+
+    Direction() {
+        position = new Position(1, 0);
+    }
+
     Direction right() {
         int index = atRightest() ? 0 : this.ordinal() + 1;
         return Direction.values()[index];
@@ -26,6 +32,6 @@ public enum Direction {
     }
 
     Position getVector() {
-        return new Position(1, 0);
+        return position;
     }
 }
