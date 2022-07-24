@@ -1,16 +1,16 @@
 package tdd;
 
 public enum Direction {
-    NORTH,
-    EAST,
-    SOUTH,
-    WEST,
+    NORTH(new Position(1, 0)),
+    EAST(new Position(1, 0)),
+    SOUTH(new Position(1, 0)),
+    WEST(new Position(1, 0)),
     ;
 
     private final Position position;
 
-    Direction() {
-        position = new Position(1, 0);
+    Direction(Position position1) {
+        position = position1;
     }
 
     Direction right() {
