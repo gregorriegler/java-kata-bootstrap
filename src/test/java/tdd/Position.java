@@ -29,6 +29,10 @@ public class Position {
         return Objects.hash(x, y);
     }
 
+    Position newMove(Position facing) {
+        return move(facing.x, facing.y);
+    }
+
     Position move(int xVector, int yVector) {
         int worldSize = 2;
         int newY = wrapAround(y, worldSize, yVector);
@@ -43,9 +47,5 @@ public class Position {
 
     Position invert() {
         return new Position(x * -1, y * -1);
-    }
-
-    Position newMove(Position facing) {
-        return move(facing.x, facing.y);
     }
 }
