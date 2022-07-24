@@ -29,7 +29,7 @@ public class Position {
         return Objects.hash(x, y);
     }
 
-    Position newMove(Position facing) {
+    Position move(Position facing) {
         int worldSize = 2;
         int newY = wrapAround(y, worldSize, facing.y);
         int newX = wrapAround(x, worldSize, facing.x);
