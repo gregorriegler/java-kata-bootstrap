@@ -43,6 +43,10 @@ class MarsRover {
     }
 
     private Position forward() {
+        return getMove();
+    }
+
+    private Position getMove() {
         return position.move(facing.vector.x, facing.vector.y);
     }
 
