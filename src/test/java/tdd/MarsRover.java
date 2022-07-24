@@ -7,6 +7,7 @@ class MarsRover {
 
     private final List<Position> world;
     private final List<String> report = new ArrayList<>();
+    private final int worldSize = 2;
     private Position position = new Position(0, 0);
     private Direction facing = Direction.NORTH;
 
@@ -53,7 +54,7 @@ class MarsRover {
     }
 
     private Position move(Position vector) {
-        Position newPosition = position.move(vector, 2);
+        Position newPosition = position.move(vector, worldSize);
         if(world.contains(newPosition)) {
             report.add("Obstacle at " + newPosition);
             return position;
