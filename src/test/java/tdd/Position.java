@@ -41,7 +41,7 @@ public class Position {
             worldSize * -vector : y + vector;
     }
 
-    Position moveByVector(Position vector, MarsRover marsRover) {
+    Position moveByVector(Position vector) {
         return move(vector.x, vector.y);
     }
 }
