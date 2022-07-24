@@ -7,14 +7,19 @@ class MarsRover {
 
     public void sendCommands(String commands) {
         for (char command : commands.toCharArray()) {
-            if (command == 'r') {
-                facing = facing.right();
-            } else if (command == 'l') {
-                facing = facing.left();
-            } else if (command == 'f') {
-                position = forward();
-            } else if (command == 'b') {
-                position = backwards();
+            switch (command) {
+                case 'r':
+                    facing = facing.right();
+                    break;
+                case 'l':
+                    facing = facing.left();
+                    break;
+                case 'f':
+                    position = forward();
+                    break;
+                case 'b':
+                    position = backwards();
+                    break;
             }
         }
     }
