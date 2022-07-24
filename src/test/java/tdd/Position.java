@@ -44,4 +44,8 @@ public class Position {
     Position invert() {
         return new Position(x * -1, y * -1);
     }
+
+    Position newMove(Position facing, MarsRover marsRover) {
+        return move(facing.x, facing.y);
+    }
 }
