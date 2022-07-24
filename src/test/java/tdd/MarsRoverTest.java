@@ -80,7 +80,7 @@ public class MarsRoverTest {
             
             "lf,WEST,-1,0",
             "lff,WEST,-2,0",
-//            "lfff,WEST,2,0",
+            "lfff,WEST,2,0",
         })
         public void forward(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
