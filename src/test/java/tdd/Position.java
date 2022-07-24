@@ -40,4 +40,8 @@ public class Position {
         return y == worldSize * vector ?
             worldSize * -vector : y + vector;
     }
+
+    Position moveByVector(Position vector, MarsRover marsRover) {
+        return move(vector.x, vector.y);
+    }
 }
