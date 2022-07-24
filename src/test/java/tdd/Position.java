@@ -28,7 +28,11 @@ public class Position {
     public int hashCode() {
         return Objects.hash(x, y);
     }
-    
+
+    Position invert() {
+        return new Position(x * -1, y * -1);
+    }
+
     Position add(Position facing, int worldSize) {
         int newX = wrapAround(x, worldSize, facing.x);
         int newY = wrapAround(y, worldSize, facing.y);
@@ -38,9 +42,5 @@ public class Position {
     private int wrapAround(int y, int worldSize, int vector) {
         return y == worldSize * vector ?
             worldSize * -vector : y + vector;
-    }
-
-    Position invert() {
-        return new Position(x * -1, y * -1);
     }
 }
