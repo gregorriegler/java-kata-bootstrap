@@ -24,6 +24,15 @@ class MarsRover {
     }
 
     private Position forward() {
+        if(facing == Direction.EAST) {
+            return position.moveByVector(facing.vector);
+        }
+        if(facing == Direction.SOUTH) {
+            return position.moveByVector(facing.vector);
+        }
+        if(facing == Direction.WEST) {
+            return position.moveByVector(facing.vector);
+        }
         return position.moveByVector(facing.vector);
     }
 
