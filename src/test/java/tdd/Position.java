@@ -30,13 +30,9 @@ public class Position {
     }
 
     Position newMove(Position facing) {
-        return move(facing.x, facing.y);
-    }
-
-    Position move(int xVector, int yVector) {
         int worldSize = 2;
-        int newY = wrapAround(y, worldSize, yVector);
-        int newX = wrapAround(x, worldSize, xVector);
+        int newY = wrapAround(y, worldSize, facing.y);
+        int newX = wrapAround(x, worldSize, facing.x);
         return new Position(newX, newY);
     }
 
