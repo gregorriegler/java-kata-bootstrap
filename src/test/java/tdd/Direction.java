@@ -7,10 +7,10 @@ public enum Direction {
     WEST(new Position(1, 0)),
     ;
 
-    private final Position position;
+    private final Position vector;
 
-    Direction(Position position1) {
-        position = position1;
+    Direction(Position vector) {
+        this.vector = vector;
     }
 
     Direction right() {
@@ -32,6 +32,6 @@ public enum Direction {
     }
 
     Position getVector() {
-        return position;
+        return vector;
     }
 }
