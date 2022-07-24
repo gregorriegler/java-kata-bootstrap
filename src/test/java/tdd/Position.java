@@ -45,7 +45,7 @@ public class Position {
         return new Position(x * -1, y * -1);
     }
 
-    Position newMove(Position facing, MarsRover marsRover) {
+    Position newMove(Position facing) {
         return move(facing.x, facing.y);
     }
 }
