@@ -53,7 +53,7 @@ class MarsRover {
     }
 
     private Position move(Position vector) {
-        Position newPosition = position.move(vector);
+        Position newPosition = position.move(vector, 2);
         if(world.contains(newPosition)) {
             report.add("Obstacle at " + newPosition);
             return position;

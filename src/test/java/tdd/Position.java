@@ -1,6 +1,5 @@
 package tdd;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Position {
@@ -30,8 +29,7 @@ public class Position {
         return Objects.hash(x, y);
     }
     
-    Position move(Position facing) {
-        int worldSize = 2;
+    Position move(Position facing, int worldSize) {
         int newX = wrapAround(x, worldSize, facing.x);
         int newY = wrapAround(y, worldSize, facing.y);
         return new Position(newX, newY);
