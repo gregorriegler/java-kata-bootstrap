@@ -30,6 +30,9 @@ class MarsRover {
         if(facing == Direction.SOUTH) {
             return position.move(0, 1);
         }
+        if(facing == Direction.WEST) {
+            return position.move(-1, 0);
+        }
         return position.move(0, -1);
     }
 
