@@ -29,11 +29,11 @@ public class Position {
     public int hashCode() {
         return Objects.hash(x, y);
     }
-
+    
     Position move(Position facing, List<Position> world) {
         int worldSize = 2;
-        int newY = wrapAround(y, worldSize, facing.y);
         int newX = wrapAround(x, worldSize, facing.x);
+        int newY = wrapAround(y, worldSize, facing.y);
         return new Position(newX, newY);
     }
 

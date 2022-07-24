@@ -110,16 +110,15 @@ public class MarsRoverTest {
             assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
         }
         
-        @Disabled
         @Test
         public void stops_on_obstable() {
-            var rover = new MarsRover(List.of(new Position(0,1)));
+            var rover = new MarsRover(List.of(new Position(0,-1)));
 
             rover.sendCommands("f");
 
             assertThat(rover.facing()).isEqualTo(NORTH);
             assertThat(rover.position()).isEqualTo(new Position(0, 0));
-            assertThat(rover.report()).contains("Obstacle at (0,1)");
+            assertThat(rover.report()).contains("Obstacle at (0,-1)");
         }
     }
 }

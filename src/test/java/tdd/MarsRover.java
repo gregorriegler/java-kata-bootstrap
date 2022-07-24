@@ -1,11 +1,13 @@
 package tdd;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 class MarsRover {
 
     private final List<Position> world;
+    private final List<String> report = new ArrayList<>();
     private Position position = new Position(0, 0);
     private Direction facing = Direction.NORTH;
 
@@ -43,12 +45,21 @@ class MarsRover {
     }
 
     private Position forward() {
-        return position.move(facing.vector, world);
+        return move(facing.vector);
     }
 
     private Position backwards() {
         Position vector = facing.vector.invert();
-        return position.move(vector, world);
+        return move(vector);
+    }
+
+    private Position move(Position vector) {
+        Position newPosition = position.move(vector, world);
+        if(world.contains(newPosition)) {
+            report.add("Obstacle at " + newPosition);
+            return position;
+        }
+        return newPosition;
     }
 
     public Direction facing() {
@@ -60,6 +71,6 @@ class MarsRover {
     }
 
     public List<String> report() {
-        return Collections.emptyList();
+        return report;
     }
 }
