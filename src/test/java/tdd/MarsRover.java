@@ -20,11 +20,12 @@ class MarsRover {
     }
 
     private Position backwards() {
-        return position.moveByVector(facing.vector.invert());
+        Position vector = facing.vector.invert();
+        return position.move(vector.x, vector.y);
     }
 
     private Position forward() {
-        return position.moveByVector(facing.vector);
+        return position.move(facing.vector.x, facing.vector.y);
     }
 
     public Direction facing() {
