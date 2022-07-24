@@ -55,11 +55,12 @@ class MarsRover {
 
     private Position move(Position vector) {
         Position newPosition = position.move(vector, worldSize);
-        if (!world.contains(newPosition)) {
+        if (world.contains(newPosition)) {
+            report.add("Obstacle at " + newPosition);
+            return position;
+        } else {
             return newPosition;
         }
-        report.add("Obstacle at " + newPosition);
-        return position;
     }
 
     public Direction facing() {
