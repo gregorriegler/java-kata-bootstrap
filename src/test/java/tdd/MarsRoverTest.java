@@ -7,7 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static tdd.Direction.NORTH;
 
 @DisplayName("Mars Rover")
 public class MarsRoverTest {
@@ -16,7 +19,7 @@ public class MarsRoverTest {
     void initializes() {
         var rover = new MarsRover();
 
-        assertThat(rover.facing()).isEqualTo(Direction.NORTH);
+        assertThat(rover.facing()).isEqualTo(NORTH);
         assertThat(rover.position()).isEqualTo(new Position(0, 0));
     }
 
@@ -107,13 +110,16 @@ public class MarsRoverTest {
             assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
         }
         
-        public void stops_on_obstable(String commands, Direction expectedFacing, int expectedX, int expectedY) {
-            var rover = new MarsRover();
+        @Disabled
+        @Test
+        public void stops_on_obstable() {
+            var rover = new MarsRover(List.of(new Position(0,1)));
 
-            rover.sendCommands(commands);
+            rover.sendCommands("f");
 
-            assertThat(rover.facing()).isEqualTo(expectedFacing);
-            assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
+            assertThat(rover.facing()).isEqualTo(NORTH);
+            assertThat(rover.position()).isEqualTo(new Position(0, 0));
+            assertThat(rover.report()).contains("Obstacle at (0,1)");
         }
     }
 }

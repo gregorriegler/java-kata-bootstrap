@@ -1,9 +1,21 @@
 package tdd;
 
+import java.util.Collections;
+import java.util.List;
+
 class MarsRover {
 
+    private final List<Position> world;
     private Position position = new Position(0, 0);
     private Direction facing = Direction.NORTH;
+
+    public MarsRover() {
+        this.world = List.of();
+    }
+    
+    public MarsRover(List<Position> world) {
+        this.world = world;
+    }
 
     public void sendCommands(String commands) {
         for (char command : commands.toCharArray()) {
@@ -45,5 +57,9 @@ class MarsRover {
 
     public Position position() {
         return position;
+    }
+
+    public List<String> report() {
+        return Collections.emptyList();
     }
 }
