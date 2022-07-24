@@ -30,7 +30,7 @@ public class Position {
         return Objects.hash(x, y);
     }
     
-    Position move(Position facing, List<Position> world) {
+    Position move(Position facing) {
         int worldSize = 2;
         int newX = wrapAround(x, worldSize, facing.x);
         int newY = wrapAround(y, worldSize, facing.y);

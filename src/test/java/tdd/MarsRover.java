@@ -1,7 +1,6 @@
 package tdd;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class MarsRover {
@@ -54,7 +53,7 @@ class MarsRover {
     }
 
     private Position move(Position vector) {
-        Position newPosition = position.move(vector, world);
+        Position newPosition = position.move(vector);
         if(world.contains(newPosition)) {
             report.add("Obstacle at " + newPosition);
             return position;
