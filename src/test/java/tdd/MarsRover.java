@@ -21,6 +21,7 @@ class MarsRover {
                     position = backwards();
                     break;
                 default:
+                    throw new IllegalArgumentException("Illegal input");
             }
         }
     }
