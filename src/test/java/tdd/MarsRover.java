@@ -26,7 +26,7 @@ class MarsRover {
     private Position forward() {
         if(facing == Direction.EAST) {
             Position vector = facing.vector;
-            return position.move(vector.x, vector.y);
+            return getMove(vector);
         }
         if(facing == Direction.SOUTH) {
             return position.move(0, 1);
@@ -35,6 +35,10 @@ class MarsRover {
             return position.move(-1, 0);
         }
         return position.move(0, -1);
+    }
+
+    private Position getMove(Position vector) {
+        return position.move(vector.x, vector.y);
     }
 
     public Direction facing() {
