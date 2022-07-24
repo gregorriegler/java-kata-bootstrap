@@ -9,7 +9,7 @@ commit:
 
 test:
     clear
-    @./gradlew test
+    @./gradlew test | sed "/* What went wrong:/d"
     
 test-commit:
     git pull --rebase
