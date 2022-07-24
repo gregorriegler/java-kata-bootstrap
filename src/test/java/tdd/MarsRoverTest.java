@@ -79,7 +79,7 @@ public class MarsRoverTest {
             "rrfff,SOUTH,0,-2",
             
             "lf,WEST,-1,0",
-//            "lff,WEST,-2,0",
+            "lff,WEST,-2,0",
 //            "lfff,WEST,2,0",
         })
         public void forward(String commands, Direction expectedFacing, int expectedX, int expectedY) {
