@@ -107,10 +107,6 @@ public class MarsRoverTest {
             assertThat(rover.position()).isEqualTo(new Position(expectedX, expectedY));
         }
         
-        @DisplayName("stops on obstacle")
-        @ParameterizedTest(name = "rover moving \"{0}\" faces {1} at ({2},{3})")
-        @CsvSource({
-            "b,NORTH,0,1",
         public void stops_on_obstable(String commands, Direction expectedFacing, int expectedX, int expectedY) {
             var rover = new MarsRover();
 
