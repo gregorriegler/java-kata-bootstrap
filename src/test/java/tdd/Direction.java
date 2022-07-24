@@ -31,7 +31,4 @@ public enum Direction {
         return this.ordinal() == 0;
     }
 
-    Position getVector() {
-        return vector;
-    }
 }
