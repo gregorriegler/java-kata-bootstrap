@@ -3,22 +3,28 @@ goal +MESSAGE:
     git commit --allow-empty -m "Goal: {{MESSAGE}}"
     git push
 
-commit:
-    @git add . 
-    -@git commit -am "wip"
-
 test:
     clear
     @./gradlew test
     
+commit:
+    @git add . 
+    -@git commit -am "wip"
+    
+test-commit:
+    just test
+    just commit
+    
 integrate:
     git pull --rebase
-    just test 
-    just commit
+    just test-commit
     git push
     
 tdd:
     watchexec -e java just test
+
+tdd-commit:
+    watchexec -e java just test-commit
 
 ci:
     watchexec -e java just integrate
