@@ -11,12 +11,12 @@ public class WeatherReporterTest {
 
     @Test
     public void exports_fed_weather() {
+        WeatherData expectedWeather = new WeatherData();
         WeatherExporterSpy exporterSpy = new WeatherExporterSpy();
-        WeatherReporter weatherReporter = new WeatherReporter(WeatherData::new, exporterSpy);
+        WeatherReporter weatherReporter = new WeatherReporter(() -> expectedWeather, exporterSpy);
 
         weatherReporter.reportNow();
 
-        WeatherData expectedWeather = new WeatherData();
         assertThat(exporterSpy.lastExported).isEqualTo(expectedWeather);
     }
 
