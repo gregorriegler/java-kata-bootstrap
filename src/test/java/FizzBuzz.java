@@ -4,9 +4,10 @@ import static java.util.stream.IntStream.rangeClosed;
 
 public class FizzBuzz {
     public String run() {
+        final String newline = "-";
         return rangeClosed(1, 20)
             .mapToObj(this::singleElement)
-            .collect(Collectors.joining("-", "", "-"));
+            .collect(Collectors.joining(newline, "", newline));
     }
 
     private String singleElement(int i) {
