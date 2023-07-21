@@ -23,19 +23,18 @@ public class TennisGame {
         final String fifteen = "Fifteen";
         final String thirty = "Thirty";
 
+        if (player1Points == 3 && player2Points == 4) {
+            return "Advantage " + player2Name;
+        }
         if (player1Points == 3) {
-            if (player2Points == 4) {
-                return "Advantage " + player2Name;
-            }
             return score("Forty", thirty);
         }
 
+        if (player1Points == 1 && player2Points > 0) {
+            return score(fifteen, thirty);
+        }
         if (player1Points == 1) {
-            if (player2Points > 0) {
-                return score(fifteen, thirty);
-            } else {
-                return score(fifteen, love);
-            }
+            return score(fifteen, love);
         }
         if (player2Points == 0) {
             return score(love, "All");
