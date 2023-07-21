@@ -1,14 +1,22 @@
+import java.util.stream.IntStream;
+
+import static java.util.stream.IntStream.rangeClosed;
+
 public class FizzBuzz {
     public String run() {
         var sb = new StringBuilder();
-        for (var i = 1; i <= 20; i++) {
-            if (i%3 == 0) {
-                sb.append("Fizz");
+        rangeClosed(1, 20).forEach(i -> {
+            String s;
+            if (i % 3 == 0) {
+                s = "Fizz";
+                //sb.append("Fizz");
             } else {
-                sb.append(i);
+                s = Integer.toString(i);
+                //sb.append(i);
             }
+            sb.append(s);
             sb.append("-");
-        }
+        });
         return sb.toString();
     }
 }
