@@ -5,18 +5,17 @@ import static java.util.stream.IntStream.rangeClosed;
 public class FizzBuzz {
     public String run() {
         final String newline = "-";
-        return rangeClosed(1, 20)
-            .mapToObj(this::singleElement)
+        final int upperLimit = 20;
+        return rangeClosed(1, upperLimit)
+            .mapToObj(this::turn)
             .collect(Collectors.joining(newline, "", newline));
     }
 
-    private String singleElement(int i) {
-        String s;
-        if (i % 3 == 0) {
-            s = "Fizz";
-        } else {
-            s = Integer.toString(i);
-        }
-        return s;
+    private String turn(int number) {
+        if (number % 3 == 0) {
+            return "Fizz";
+        } 
+
+        return Integer.toString(number);
     }
 }
