@@ -5,16 +5,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class HelloWorldTest {
+public class FizzBuzzTest {
 
     @Test
     void hello() {
-        var hello = "hello";
+        var fizzBuzz = new FizzBuzz();
+        var hello = fizzBuzz.run();
 
-        assertThat(hello).isEqualTo("hello");
+        assertThat(hello).isEqualTo("1");
     }
 }
 
-interface Hello {
-    void world();
-}
