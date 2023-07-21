@@ -8,11 +8,11 @@ import static org.mockito.Mockito.verify;
 public class FizzBuzzTest {
 
     @Test
-    void hello() {
+    void shouldFizzBuzz() {
         var fizzBuzz = new FizzBuzz();
-        var hello = fizzBuzz.run();
+        var actual = fizzBuzz.run();
 
-        assertThat(hello).isEqualTo("1");
+        assertThat(actual).isEqualTo("1");
     }
 }
 
