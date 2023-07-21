@@ -1,4 +1,5 @@
 public class TennisGame {
+    
     private int player1Points;
     private boolean anyPlayerScored;
 
@@ -13,9 +14,15 @@ public class TennisGame {
     }
 
     public String getScore() {
-        if (player1Points > 1) return score("Forty", "Thirty");
-        if (player1Points == 1) return score("Fifteen", "Thirty");
-        if (anyPlayerScored) return "Win for player2";
+        if (player1Points == 3) {
+            return score("Forty", "Thirty");
+        }
+        if (player1Points == 1) {
+            return score("Fifteen", "Thirty");
+        }
+        if (anyPlayerScored) {
+            return "Win for player2";
+        }
         return score("Love", "All");
     }
 

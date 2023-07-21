@@ -14,13 +14,13 @@ public class TennisTest {
             {3, 2, "Forty-Thirty"},
             {0, 4, "Win for player2"},
             {1, 2, "Fifteen-Thirty"},
+//                {1, 0, "Fifteen-Love"},
 
 //                {1, 1, "Fifteen-All"},
 //                {2, 2, "Thirty-All"},
 //                {3, 3, "Deuce"},
 //                {4, 4, "Deuce"},
 //
-//                {1, 0, "Fifteen-Love"},
 //                {0, 1, "Love-Fifteen"},
 //                {2, 0, "Thirty-Love"},
 //                {0, 2, "Love-Thirty"},
