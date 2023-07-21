@@ -15,6 +15,7 @@ public class TennisTest {
             {0, 4, "Win for player2"},
             {1, 2, "Fifteen-Thirty"},
             {1, 0, "Fifteen-Love"},
+//            {3, 4, "Advantage player2"},
 
 //                {1, 1, "Fifteen-All"},
 //                {2, 2, "Thirty-All"},
@@ -39,7 +40,6 @@ public class TennisTest {
 //                {2, 4, "Win for player2"},
 //
 //                {4, 3, "Advantage player1"},
-//                {3, 4, "Advantage player2"},
 //                {5, 4, "Advantage player1"},
 //                {4, 5, "Advantage player2"},
 //                {15, 14, "Advantage player1"},
