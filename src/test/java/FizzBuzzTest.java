@@ -13,8 +13,7 @@ public class FizzBuzzTest {
         var actual = fizzBuzz.run();
 
         assertThat(actual).isEqualTo(
-            "1\n" +
-            "2\n"
+            "1-2-"
         );
     }
 }
