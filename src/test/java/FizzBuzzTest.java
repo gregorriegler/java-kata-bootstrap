@@ -12,7 +12,10 @@ public class FizzBuzzTest {
         var fizzBuzz = new FizzBuzz();
         var actual = fizzBuzz.run();
 
-        assertThat(actual).isEqualTo("1\n2\n");
+        assertThat(actual).isEqualTo(
+            "1\n" +
+            "2\n"
+        );
     }
 }
 
