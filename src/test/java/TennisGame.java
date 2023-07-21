@@ -13,9 +13,13 @@ public class TennisGame {
     }
 
     public String getScore() {
-        if (player1Scored > 1) return "Forty-Thirty";
-        if (player1Scored == 1) return "Fifteen-Thirty";
+        if (player1Scored > 1) return score("Forty", "Thirty");
+        if (player1Scored == 1) return score("Fifteen", "Thirty");
         if (anyPlayerScored) return "Win for player2";
-        return "Love-All";
+        return score("Love", "All");
+    }
+
+    private String score(String forty, String thirty) {
+        return forty + "-" + thirty;
     }
 }
