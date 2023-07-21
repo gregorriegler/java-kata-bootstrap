@@ -19,29 +19,32 @@ public class TennisGame {
     }
 
     public String getScore() {
-        final String love = "Love";
-        final String fifteen = "Fifteen";
-        final String thirty = "Thirty";
-
         if (player1Points == 3 && player2Points == 4) {
             return "Advantage " + player2Name;
         }
         if (player1Points == 0 && player2Points == 4) {
             return "Win for " + player2Name;
         }
-        
+
+        return scoreUsingNames();
+    }
+
+    private String scoreUsingNames() {
+        final String love = "Love";
+        final String fifteen = "Fifteen";
+        final String thirty = "Thirty";
+
         if (player1Points == 1 && player2Points == 0) {
             return format(fifteen, love);
         }
-        
         if (player1Points == 1 && player2Points == 2) {
             return format(fifteen, thirty);
         }
-
-        if (player1Points == 3) {
+        if (player1Points == 3 && player2Points == 2) {
             return format("Forty", thirty);
         }
-        if (player2Points == 0) {
+
+        if (player1Points == 0 && player2Points == 0) {
             return format(love, "All");
         }
 
