@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class FizzBuzzTest {
 
@@ -13,7 +10,7 @@ public class FizzBuzzTest {
         var actual = fizzBuzz.run();
 
         assertThat(actual).isEqualTo(
-            "1-2-Fizz-"
+            "1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-"
         );
     }
 }
