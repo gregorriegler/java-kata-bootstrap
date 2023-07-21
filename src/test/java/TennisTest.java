@@ -1,15 +1,18 @@
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.params.provider.MethodSource;
 
 public class TennisTest {
 
     public static Stream<Object[]> getAllScores() {
+
         return Stream.of(new Object[][]{
-                {0, 0, "Love-All"},
+            {0, 0, "Love-All"},
+            {3, 2, "Forty-Thirty"},
+            {0, 4, "Win for player2"},
 //                {1, 1, "Fifteen-All"},
 //                {2, 2, "Thirty-All"},
 //                {3, 3, "Deuce"},
@@ -22,7 +25,6 @@ public class TennisTest {
 //                {3, 0, "Forty-Love"},
 //                {0, 3, "Love-Forty"},
 //                {4, 0, "Win for player1"},
-//                {0, 4, "Win for player2"},
 //
 //                {2, 1, "Thirty-Fifteen"},
 //                {1, 2, "Fifteen-Thirty"},
@@ -31,7 +33,6 @@ public class TennisTest {
 //                {4, 1, "Win for player1"},
 //                {1, 4, "Win for player2"},
 //
-//                {3, 2, "Forty-Thirty"},
 //                {2, 3, "Thirty-Forty"},
 //                {4, 2, "Win for player1"},
 //                {2, 4, "Win for player2"},
