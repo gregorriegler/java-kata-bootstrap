@@ -10,7 +10,7 @@ public class FizzBuzzTest {
         var actual = fizzBuzz.run();
 
         assertThat(actual).isEqualTo(
-            "1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-"
+            "1-2-Fizz-4-5-Fizz-7-8-Fizz-10-11-Fizz-13-14-Fizz-16-17-Fizz-19-20-"
         );
     }
 }
