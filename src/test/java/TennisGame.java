@@ -19,9 +19,11 @@ public class TennisGame {
         final String fifteen = "Fifteen";
         final String thirty = "Thirty";
 
+        final String player2 = "player2";
+
         if (player1Points == 3) {
             if (player2Points == 4) {
-                return "Advantage player2";            
+                return "Advantage " + player2;            
             }
             return score("Forty", thirty);
         }
@@ -37,7 +39,7 @@ public class TennisGame {
             return score(love, "All");
         }
 
-        return "Win for player2";
+        return "Win for " + player2;
     }
 
     private String score(String player1Score, String player2Score) {
