@@ -1,5 +1,5 @@
 public class FizzBuzz {
     public String run() {
-        return "1-2-";
+        return "1-2-Fizz-";
     }
 }

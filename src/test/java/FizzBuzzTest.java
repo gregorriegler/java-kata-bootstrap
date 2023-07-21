@@ -13,7 +13,7 @@ public class FizzBuzzTest {
         var actual = fizzBuzz.run();
 
         assertThat(actual).isEqualTo(
-            "1-2-"
+            "1-2-Fizz-"
         );
     }
 }
