@@ -1,18 +1,12 @@
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static java.util.stream.IntStream.rangeClosed;
 
 public class FizzBuzz {
     public String run() {
-        var sb = new StringBuilder();
-        String collected = rangeClosed(1, 20).mapToObj(i -> {
-            String s = singleElement(i);
-            sb.append(s);
-            sb.append("-");
-            return s;
-        }).collect(Collectors.joining("-", "", "-"));
-        return collected;
+        return rangeClosed(1, 20)
+            .mapToObj(this::singleElement)
+            .collect(Collectors.joining("-", "", "-"));
     }
 
     private String singleElement(int i) {
