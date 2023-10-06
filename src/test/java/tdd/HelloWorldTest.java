@@ -8,7 +8,9 @@ public class HelloWorldTest {
 
     @Test
     void hello() {
-        var hello = "hello";
+        var hello = """
+            hello
+            """;
 
         assertThat(hello).isEqualTo("world");
     }

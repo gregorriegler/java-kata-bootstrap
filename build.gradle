@@ -5,7 +5,8 @@ plugins {
 
 group = 'gregorriegler.com'
 version = '1.0-SNAPSHOT'
-sourceCompatibility = 11
+sourceCompatibility = '17'
+targetCompatibility = '17'
 
 repositories {
     mavenCentral()
